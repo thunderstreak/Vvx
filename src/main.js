@@ -7,9 +7,9 @@ import router from './router'
 import './javascripts/flexiblecssjs.js';
 import './styles/index.css';
 
-import vvx from './packages/vvx.js';
+import Vvx from './packages/vvx.js';
 
-Vue.use(vvx);
+Vue.use(Vvx);
 
 // 使用全局方法或属性
 // Vue.myGlobalMethod();

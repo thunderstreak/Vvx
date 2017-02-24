@@ -1,6 +1,44 @@
-# vvx
+# Vvx
 
-> vvx UI
+> Vvx UI 基于Vue2.0开发的一套常用移动端UI组件。
+
+## Install
+
+```shell
+npm install
+```
+## Quick Start
+``` javascript
+import Vue from 'vue'
+import Element from 'Vvx'
+
+Vue.use(Vvx)
+
+// or
+import {
+  Dialog,
+  Loding
+  // ...
+} from 'Vvx'
+
+Vue.component(Dialog.name, Dialog)
+Vue.component(Loding.name, Loding)
+```
+
+## Browser Support
+*android4.4+
+*ios9+
+
+## Commonly used Components
+*Dialog
+*Loding
+*PickerAddress
+*PickerTime
+*PickerSelect
+*Swiper
+*Switch
+*More in development...
+
 
 ## Build Setup
 

@@ -249,7 +249,7 @@ export default {
     background: #fff;
     z-index: 9999;
     .picker-date-tit{
-        height: calc(1rem - .1px);
+        height: calc(1rem);
         line-height: 1rem;
         border-bottom: 1px #ccc solid;
 
