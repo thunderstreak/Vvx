@@ -26,18 +26,18 @@ Vue.component(Loding.name, Loding)
 ```
 
 ## Browser Support
-*android4.4+
-*ios9+
+* android4.4+
+* ios9+
 
 ## Commonly used Components
-*Dialog
-*Loding
-*PickerAddress
-*PickerTime
-*PickerSelect
-*Swiper
-*Switch
-*More in development...
+- Dialog
+- Loding
+- PickerAddress
+- PickerTime
+- PickerSelect
+- Swiper
+- Switch
+- More in development...
 
 
 ## Build Setup
