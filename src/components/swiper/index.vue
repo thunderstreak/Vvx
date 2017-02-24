@@ -1,18 +1,18 @@
 <template lang="html">
     <div class="swiper">
 
-        <p class="list">自动播放:3000</p>
+        <p class="demo-list">自动播放:3000</p>
         <Swiper v-bind:auto="3000" v-bind:imgArr="swiper">
 
-            <!-- <a v-bind:href="item.url" v-for="(item,index) in swiper" v-bind="{'data-item' : index}">
+            <!-- <a v-bind:href="item.url" v-for="(item,index) in swiper" v-bind:data-item="index">
                 <img v-bind:src="item.src" v-bind:alt="item.alt">
             </a> -->
 
         </Swiper>
 
-        <p class="list">显示圆点位置：left</p>
+        <p class="demo-list">显示圆点位置：left</p>
         <Swiper v-bind:imgArr="swiper" v-bind:show="'left'"></Swiper>
-        <p class="list">显示圆点位置：right</p>
+        <p class="demo-list">显示圆点位置：right</p>
         <Swiper v-bind:imgArr="swiper" v-bind:show="'right'"></Swiper>
 
     </div>

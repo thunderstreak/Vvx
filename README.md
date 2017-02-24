@@ -10,15 +10,15 @@ npm install
 ## Quick Start
 ``` javascript
 import Vue from 'vue'
-import Element from 'Vvx'
+import Vvx from 'Vvx'
 
 Vue.use(Vvx)
 
 // or
 import {
-  Dialog,
-  Loding
-  // ...
+  	Dialog,
+  	Loding
+  	// ...
 } from 'Vvx'
 
 Vue.component(Dialog.name, Dialog)
@@ -38,6 +38,232 @@ Vue.component(Loding.name, Loding)
 - Swiper
 - Switch
 - More in development...
+
+## Components Details Used
+
+> Dialog
+
+``` HTML
+<p class="demo-list" v-on:click="tips1">弹出confirm<span>{{tipsMsg1}}</span></p>
+```
+
+``` javascript
+let that = this;
+this.$dialog.confirm({
+    tit:'测试标题',
+    msg:'测试信息',
+    callback:function(data){
+        that.tipsMsg1 = data;
+    }
+})
+```
+All methods:`confirm,alert,toast`.
+
+>Loding
+
+``` HTML
+<p class="demo-list" v-on:click="loding1">显示Loding</p>
+```
+
+``` javascript
+loding1(){
+    this.$loding.loding();
+},
+```
+All methods:`loding,done`.
+
+>PickerAddress
+
+``` HTML
+<p class="demo-list" v-on:click="showPickerAddress1">显示默认地址：['北京', '北京', '东城区'] <span>{{resAddress1}}</span></p>
+
+<!-- 显示默认地址： -->
+<pickerAddress
+	v-bind:Metadata="Metadata"
+    v-on:accept-result="acceptResultAddress1"
+    ref="pickerAddress1"
+></pickerAddress>
+<p class="demo-list" v-on:click="showPickerAddress2">显示设置地址：['湖南省', '长沙市', '岳麓区'] <span>{{resAddress2}}</span></p>
+
+<!-- 显示设置地址： -->
+<pickerAddress
+	v-bind:Metadata="Metadata"
+    v-bind:setAddress="['湖南省', '长沙市', '岳麓区']"
+    v-on:accept-result="acceptResultAddress2"
+    ref="pickerAddress2"
+></pickerAddress>
+
+<p class="demo-list" v-on:click="showPickerAddress3">显示省市：['北京', '北京'] <span>{{resAddress3}}</span></p>
+
+<!-- 显示省市： -->
+<pickerAddress
+	v-bind:Metadata="Metadata"
+    v-bind:setProcity="true"
+    v-on:accept-result="acceptResultAddress3"
+    ref="pickerAddress3"
+></pickerAddress>
+```
+
+``` javascript
+// 类似数据
+{
+	"i":"11",
+	"n":"北京",
+	"c":[{
+		"i":"1101",
+		"n":"北京市",
+		"c":
+		[{"i":"110101","n":"东城区"},
+		{"i":"110102","n":"西城区"},
+		{"i":"110103","n":"崇文区"},
+		{"i":"110104","n":"宣武区"},
+		{"i":"110105","n":"朝阳区"},
+		{"i":"110106","n":"丰台区"},
+		{"i":"110107","n":"石景山区"},
+		{"i":"110108","n":"海淀区"},
+		{"i":"110109","n":"门头沟区"},
+		{"i":"110111","n":"房山区"},
+		{"i":"110112","n":"通州区"},
+		{"i":"110113","n":"顺义区"},
+		{"i":"110114","n":"昌平区"},
+		{"i":"110115","n":"大兴区"},
+		{"i":"110116","n":"怀柔区"},
+		{"i":"110117","n":"平谷区"},
+		{"i":"110228","n":"密云县"},
+		{"i":"110229","n":"延庆县"}]
+	}]
+}
+// 显示和获取结果
+showPickerAddress1(){
+    this.$refs.pickerAddress1.open();
+},
+acceptResultAddress1(val){
+    this.resAddress1 = val.toString();
+},
+```
+
+>PickerTime
+
+``` HTML
+<p class="demo-list" v-on:click="showPickerTime1">显示默认时间：{{currTime}} <span>{{resTime1}}</span></p>
+
+<!-- 显示默认时间 -->
+<pickerTime
+    v-on:accept-result="acceptResultTime1"
+    ref="pickerTime1"
+></pickerTime>
+
+<p class="demo-list" v-on:click="showPickerTime2">显示设置时间：2016-2-29 <span>{{resTime2}}</span></p>
+
+<!-- 显示设置时间 -->
+<pickerTime
+    v-bind:setCurrDate="[2016,2,29]"
+    v-on:accept-result="acceptResultTime2"
+    ref="pickerTime2"
+></pickerTime>
+
+<p class="demo-list" v-on:click="showPickerTime3">设置时间段：[Min:2015-5]-[Max2018-5] <span>{{resTime3}}</span></p>
+
+<!-- 设置时间段 -->
+<pickerTime
+    v-bind:setMinDate="[2015,5,5]"
+    v-bind:setMaxDate="[2018,5,5]"
+
+    v-on:accept-result="acceptResultTime3"
+    ref="pickerTime3"
+></pickerTime>
+```
+
+``` javascript
+
+
+// 显示和获取结果
+showPickerTime1(){
+    this.$refs.pickerTime1.open();
+},
+acceptResultTime1(val){
+    this.resTime1 = val.toString();
+},
+```
+
+
+>PickerSelect
+
+``` HTML
+<p class="demo-list" v-on:click="showPickerSelect1">默认的select:<span>{{resSelect1}}</span></p>
+
+<p class="demo-list" v-on:click="showPickerSelect1">设置初始select:[城东区]<span>{{resSelect1}}</span></p>
+```
+
+``` javascript
+// 类似数据
+initData:['select1','select2','select3','select4',],
+initSelected:['select2'],
+
+// 显示和获取结果
+showPickerSelect1(){
+    this.$refs.pickerSelect1.open();
+},
+acceptResultSeletc1(val){
+    this.resSelect1 = val.toString();
+},
+```
+
+
+>Swiper
+
+``` HTML
+<p class="demo-list">自动播放:3000</p>
+
+<Swiper v-bind:auto="3000" v-bind:imgArr="swiper">
+
+	<!-- <a v-bind:href="item.url" v-for="(item,index) in swiper" v-bind:data-item="index">
+	    <img v-bind:src="item.src" v-bind:alt="item.alt">
+	</a> -->
+
+</Swiper>
+
+<p class="demo-list">显示圆点位置：left,right,默认居中</p>
+
+<Swiper v-bind:imgArr="swiper" v-bind:show="'left'"></Swiper>
+
+```
+
+``` javascript
+//类似数据
+swiper:[
+    {src:"https://static.vux.li/demo/1.jpg",alt:"top_banner1",url:"https://static.vux.li/demo/1.jpg"},
+    {src:"https://static.vux.li/demo/2.jpg",alt:"top_banner2",url:"https://static.vux.li/demo/1.jpg"},
+    {src:"https://static.vux.li/demo/3.jpg",alt:"top_banner3",url:"https://static.vux.li/demo/1.jpg"},
+]
+```
+
+
+>Switch
+
+``` HTML
+<p class="demo-list">设置标题：这是一个标题<span></span></p>
+
+<Switchs
+    v-bind:title="'这是一个标题'"
+></Switchs>
+
+<p class="demo-list">设置初始：true<span>{{onoff}}</span></p>
+
+<Switchs
+    v-bind:title="'这是另外一个标题'"
+    v-bind:Active='true'
+    v-on:accept-result="acceptResultSwitch"
+></Switchs>
+```
+
+``` javascript
+// 接收结果
+acceptResultSwitch(val){
+    this.onoff = val;
+}
+```
+All methods:`loding,done`.
 
 
 ## Build Setup

@@ -57,13 +57,13 @@ export default {
     created(){
 
             this.select   = this.PropData;
-            /*for(let i = 0;i < this.PropData.length;i++){
-                if(this.PropData[i].n == this.setAddress[0]){
-                    this.selectedProvinceIndex = i;//选中省的下标
-                    this.setProvinceCurrIndex = i;//设置当前省下标
+            for(let i = 0;i < this.PropData.length;i++){
+                if(this.PropData[i] == this.PropSelect[0]){
+                    this.selectedIndex = i;//选中省的下标
+                    // this.setProvinceCurrIndex = i;//设置当前省下标
                     break;
                 }
-            }*/
+            }
 
     },
     mounted(){

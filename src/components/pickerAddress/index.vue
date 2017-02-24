@@ -9,12 +9,14 @@
 
         <!-- 显示默认地址： -->
         <pickerAddress
+            v-bind:Metadata="Metadata"
             v-on:accept-result="acceptResultAddress1"
             ref="pickerAddress1"
         ></pickerAddress>
 
         <!-- 显示设置地址： -->
         <pickerAddress
+            v-bind:Metadata="Metadata"
             v-bind:setAddress="['湖南省', '长沙市', '岳麓区']"
             v-on:accept-result="acceptResultAddress2"
             ref="pickerAddress2"
@@ -22,6 +24,7 @@
 
         <!-- 显示省市： -->
         <pickerAddress
+            v-bind:Metadata="Metadata"
             v-bind:setProcity="true"
             v-on:accept-result="acceptResultAddress3"
             ref="pickerAddress3"
@@ -36,12 +39,13 @@
 <script>
 
 import pickeraddress from '../../packages/pickerAddress/index.js';
-
+import metadata from '../../packages/pickerAddress/src/AreaData.json';
 export default {
     name:'picker',
     data(){
         return{
             msg:'picker',
+            Metadata:metadata,
             address:['湖南省', '长沙市', '岳麓区'],
             date:[2015,5,5],
             resAddress1:'省/市/区',
