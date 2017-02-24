@@ -3,22 +3,25 @@
         <img class="log" src="../assets/logo.png">
         <ul class="hello-list">
             <li>
-                <router-link to="/swiper">swiper</router-link>
+                <router-link tag="span" to="/swiper">swiper</router-link>
             </li>
             <li>
-                <router-link to="/picker">picker</router-link>
+                <router-link tag="span" to="/picker">picker</router-link>
             </li>
             <li>
-                <router-link to="/pickerTime">pickerTime</router-link>
+                <router-link tag="span" to="/pickerSelect">pickerSelect</router-link>
             </li>
             <li>
-                <router-link to="/pickerAddress">pickerAddress</router-link>
+                <router-link tag="span" to="/pickerTime">pickerTime</router-link>
             </li>
             <li>
-                <router-link to="/switch">switch</router-link>
+                <router-link tag="span" to="/pickerAddress">pickerAddress</router-link>
             </li>
             <li>
-                <router-link to="/dialog">dialog</router-link>
+                <router-link tag="span" to="/switch">switch</router-link>
+            </li>
+            <li>
+                <router-link tag="span" to="/dialog">dialog</router-link>
             </li>
         </ul>
     </div>

@@ -33,6 +33,15 @@ export default new Router({
             component: resolve => require(['../components/picker/index.vue'], resolve)
         },
         {
+            path: '/pickerSelect',
+            meta: {
+                auth: false,
+                title: 'pickerSelect'
+            },
+            name: 'pickerSelect',
+            component: resolve => require(['../components/pickerSelect/index.vue'], resolve)
+        },
+        {
             path: '/pickerTime',
             meta: {
                 auth: false,
@@ -70,7 +79,7 @@ export default new Router({
         },
         {
             path: '*',
-            redirect: {name:'hello'}
+            redirect: {name:'home'}
         }
     ]
 })

@@ -6,7 +6,7 @@
         v-on:touchend.stop.prevent="touchend($event)">
 
             <slot>
-                <a v-bind:href="item.url" v-for="(item,idx) in imgs" v-bind="{'data-item' : idx}">
+                <a v-bind:href="item.url" v-for="(item,idx) in imgs"  v-bind:data-item="idx">
                     <img v-bind:src="item.src" v-bind:alt="item.alt">
                 </a>
             </slot>
@@ -61,8 +61,13 @@ export default {
         }
     },
     created(){
-        this.windowWidth = window.screen.width;
-        this.boxWidth = this.imgs.length * this.windowWidth;
+        let dpr = document.querySelector('html').dataset.dpr;
+        if(dpr){
+            this.windowWidth = window.screen.width * dpr;
+        }else{
+            this.windowWidth = window.screen.width;
+        }
+        this.boxWidth = this.imgs.length * this.windowWidth ;
     },
     methods:{
         touchstart(e){

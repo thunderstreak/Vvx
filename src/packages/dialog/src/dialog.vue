@@ -104,6 +104,10 @@ export default {
             padding:.25rem 0;
             font-size: .45rem;
             >input{
+                -webkit-appearance: none;
+                padding: 0;
+                margin:0;
+                border-radius: 0;
                 width: 80%;
                 height: .75rem;
                 line-height: .75rem;
@@ -133,7 +137,7 @@ export default {
 }
 
 .fade-enter-active, .fade-leave-active {
-    transition: .25s
+    transition: .2s
 }
 .fade-enter, .fade-leave-active {
     opacity: 0

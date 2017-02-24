@@ -16,8 +16,6 @@
                 </div>
             </div>
         </div>
-        {{direction}}--{{offsetX}}
-        <!-- <test></test> -->
     </div>
 </template>
 

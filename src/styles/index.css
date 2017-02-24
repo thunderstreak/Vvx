@@ -22,3 +22,23 @@ text-decoration:none;
     height: 1rem;
     line-height: 1rem;
 }
+
+.demo{
+    margin:0 .25rem;
+}
+.demo-list{
+    height: 1rem;
+    line-height: 1rem;
+    border-bottom: 1px #ccc solid;
+    display: box;
+    display: -webkit-box;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+    background: url('../assets/setting_right.png') no-repeat right;
+    background-size: 0.2rem 0.3466666666666667rem;
+}
+.demo-list>span{
+    padding-right: .5rem;
+}

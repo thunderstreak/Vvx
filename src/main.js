@@ -7,6 +7,12 @@ import router from './router'
 import './javascripts/flexiblecssjs.js';
 import './styles/index.css';
 
+import vvx from './packages/vvx.js';
+
+Vue.use(vvx);
+
+// 使用全局方法或属性
+// Vue.myGlobalMethod();
 
 router.beforeEach((to,from,next)=>{
     // 设置路由页面文档标题

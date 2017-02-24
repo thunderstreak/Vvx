@@ -1,11 +1,11 @@
 <template lang="html">
-    <div class="pickers">
+    <div class="demo">
 
-        <p class="pickers-p" v-on:click="showPickerAddress1">显示默认地址：['北京', '北京', '东城区'] <span>{{resAddress1}}</span></p>
+        <p class="demo-list" v-on:click="showPickerAddress1">显示默认地址：['北京', '北京', '东城区'] <span>{{resAddress1}}</span></p>
 
-        <p class="pickers-p" v-on:click="showPickerAddress2">显示设置地址：['湖南省', '长沙市', '岳麓区'] <span>{{resAddress2}}</span></p>
+        <p class="demo-list" v-on:click="showPickerAddress2">显示设置地址：['湖南省', '长沙市', '岳麓区'] <span>{{resAddress2}}</span></p>
 
-        <p class="pickers-p" v-on:click="showPickerAddress3">显示省市：['北京', '北京'] <span>{{resAddress3}}</span></p>
+        <p class="demo-list" v-on:click="showPickerAddress3">显示省市：['北京', '北京'] <span>{{resAddress3}}</span></p>
 
         <!-- 显示默认地址： -->
         <pickerAddress
@@ -81,25 +81,3 @@ export default {
     }
 }
 </script>
-
-<style lang="css">
-.pickers{
-    margin:0 .25rem;
-}
-.pickers-p{
-    height: 1rem;
-    line-height: 1rem;
-    border-bottom: 1px #ccc solid;
-    display: box;
-    display: -webkit-box;
-    display: flex;
-    display: -webkit-flex;
-    justify-content: space-between;
-    -webkit-justify-content: space-between;
-    background: url('../../assets/setting_right.png') no-repeat right;
-    background-size: 0.2rem 0.3466666666666667rem;
-}
-.pickers-p>span{
-    padding-right: .5rem;
-}
-</style>
