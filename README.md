@@ -263,7 +263,6 @@ acceptResultSwitch(val){
     this.onoff = val;
 }
 ```
-All methods:`loding,done`.
 
 
 ## Build Setup
