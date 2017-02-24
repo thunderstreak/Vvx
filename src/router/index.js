@@ -78,6 +78,15 @@ export default new Router({
             component: resolve => require(['../components/dialog/index.vue'], resolve)
         },
         {
+            path: '/loding',
+            meta: {
+                auth: false,
+                title: 'loding'
+            },
+            name: 'loding',
+            component: resolve => require(['../components/loding/index.vue'], resolve)
+        },
+        {
             path: '*',
             redirect: {name:'home'}
         }

@@ -23,6 +23,9 @@
             <li>
                 <router-link tag="span" to="/dialog">dialog</router-link>
             </li>
+            <li>
+                <router-link tag="span" to="/loding">loding</router-link>
+            </li>
         </ul>
     </div>
 </template>

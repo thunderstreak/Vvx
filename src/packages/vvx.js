@@ -1,4 +1,5 @@
 import Dialog from './dialog/';
+import Loding from './Loding/';
 
 import Picker from './picker/';
 import PickerSelect from './pickerSelect/';
@@ -40,7 +41,9 @@ Vvx.install = (Vue, options) => {
 	Vue.prototype.$myMethod = (options) => {
 		// 逻辑...
 	}
+
 	Vue.$dialog = Vue.prototype.$dialog = Dialog;
+	Vue.$Loding = Vue.prototype.$loding = Loding;
 }
 
 export default Vvx;

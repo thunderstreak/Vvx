@@ -22,7 +22,7 @@ export default {
         }
     },
     created(){
-        // console.log(this.$dialog);
+        // console.log(this.$Dialog);
     },
     mounted(){
 
