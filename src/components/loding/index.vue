@@ -19,7 +19,9 @@ export default {
     },
     methods:{
         loding1(){
-            this.$loding.loding();
+            this.$loding.loding({
+                msg:'loding'
+            });
 
             setTimeout(()=>{
                 this.$loding.hide();

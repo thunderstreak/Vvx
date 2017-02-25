@@ -1,6 +1,6 @@
 # Vvx
 
-> Vvx UI 基于Vue2.0开发的一套常用移动端UI组件。
+> Vvx UI 一套基于Vue2.0开发的一套简单常用的移动端UI组件。
 
 ## Install
 
@@ -68,7 +68,9 @@ All methods:`confirm,alert,toast`.
 ``` javascript
 // show
 loding1(){
-    this.$loding.loding();
+    this.$loding.loding({
+    	msg:'loding'
+    });
 },
 //hide 
 this.$loding.hide();

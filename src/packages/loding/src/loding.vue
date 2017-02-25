@@ -17,7 +17,7 @@
 
 <script>
 export default {
-    name:'loding',
+    name:'Loding',
     data(){
         return{
             msg     :'',
@@ -31,9 +31,7 @@ export default {
 
     },
     mounted(){
-        if(!this.msg){
-            this.msg = 'loding...'
-        }
+        
     },
     methods:{
 
