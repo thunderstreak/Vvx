@@ -1,5 +1,5 @@
 <template lang="html">
-    <div class="swiper">
+    <div class="demo">
 
         <p class="demo-list">自动播放:3000</p>
         <Swiper v-bind:auto="3000" v-bind:imgArr="swiper">

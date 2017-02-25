@@ -83,6 +83,7 @@ All methods:`loding,done`.
     v-on:accept-result="acceptResultAddress1"
     ref="pickerAddress1"
 ></pickerAddress>
+
 <p class="demo-list" v-on:click="showPickerAddress2">显示设置地址：['湖南省', '长沙市', '岳麓区'] <span>{{resAddress2}}</span></p>
 
 <!-- 显示设置地址： -->
