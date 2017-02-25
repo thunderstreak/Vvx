@@ -5,9 +5,8 @@ import Picker from './picker/';
 import PickerSelect from './pickerSelect/';
 import PickerAddress from './pickerAddress/';
 import PickerTime from './pickerTime/';
-import Switch from './switch/';
+import Switchs from './switch/';
 import Swiper from './swiper/';
-
 
 let Vvx = {};
 
@@ -16,7 +15,7 @@ Vvx.install = (Vue, options) => {
 	Vue.component(PickerSelect.name, PickerSelect);
 	Vue.component(PickerAddress.name, PickerAddress);
 	Vue.component(PickerTime.name, PickerTime);
-	Vue.component(Switch.name, Switch);
+	Vue.component(Switchs.name, Switchs);
 	Vue.component(Swiper.name, Swiper);
 
 	// 1. 添加全局方法或属性

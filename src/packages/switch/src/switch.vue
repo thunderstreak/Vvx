@@ -11,7 +11,7 @@
 
 <script>
 export default {
-    name:'switchs',
+    name:'Switchs',
     props:{
         title:{
             type:String,

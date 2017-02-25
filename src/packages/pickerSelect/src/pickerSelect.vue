@@ -28,10 +28,10 @@
 import pickers from '../../picker/index.js';
 
 export default {
-    name:'pickerSelect',
+    name:'PickerSelect',
     data(){
         return{
-            msg                     :'pickerSelect',
+            msg                     :'PickerSelect',
             select                  :null,
             selectedIndex           :0,
             show                    :true,

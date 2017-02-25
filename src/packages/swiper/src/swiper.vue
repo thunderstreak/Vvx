@@ -20,7 +20,7 @@
 
 <script>
 export default {
-    name:'silderbox',
+    name:'Swiper',
     data(){
         return {
             msg:'silder',

@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import switchs from '../../packages/switch/index.js';
+// import switchs from '../../packages/switch/index.js';
 
 export default {
     name:'switch',
@@ -33,7 +33,7 @@ export default {
 
     },
     components:{
-        Switchs:switchs
+        // Switchs:switchs
     },
     methods:{
         acceptResultSwitch(val){

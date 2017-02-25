@@ -39,10 +39,10 @@ import PropData from './AreaData.json';
 import pickers from '../../picker/index.js';
 
 export default {
-    name:'pickerAddress',
+    name:'PickerAddress',
     data(){
         return{
-            msg                     :'pickerAddress',
+            msg                     :'PickerAddress',
             province                :null,//省
             selectedProvinceIndex   :0,
             city                    :null,//市

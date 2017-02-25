@@ -75,10 +75,10 @@ function getDaysInMonth(year,month){
     return temp.getDate();
 }
 export default {
-    name:'pickerTime',
+    name:'PickerTime',
     data(){
         return{
-            msg                 :'pickerTime',
+            msg                 :'PickerTime',
             show                :true,
             year                :[],
             selectedYearIndex   :0,

@@ -38,7 +38,6 @@
 
 <script>
 
-import pickeraddress from '../../packages/pickerAddress/index.js';
 import metadata from '../../packages/pickerAddress/src/AreaData.json';
 export default {
     name:'picker',
@@ -54,7 +53,6 @@ export default {
         }
     },
     components:{
-        PickerAddress   :pickeraddress
     },
     methods:{
         // 默认地址选择

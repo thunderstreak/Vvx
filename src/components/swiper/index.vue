@@ -19,7 +19,6 @@
 </template>
 
 <script>
-import swiper from '../../packages/swiper/';
 export default {
     name:'swiper',
     data(){
@@ -33,7 +32,6 @@ export default {
         }
     },
     components:{
-        Swiper:swiper
     },
     beforeCreate(){
 

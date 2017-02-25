@@ -7,12 +7,12 @@
 
 
 
-        <pickerSelect
+        <PickerSelect
             v-bind:PropData="initData"
             v-bind:PropSelect="initSelected"
             v-on:accept-result="acceptResultSeletc1"
             ref="pickerSelect1"
-        ></pickerSelect>
+        ></PickerSelect>
     </section>
 </template>
 

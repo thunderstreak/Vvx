@@ -5,7 +5,7 @@
 
                 <section class="loding"></section>
                 <section class="loding-center">
-                    <i v-if="!loding" class="help"></i>
+                    <img v-if="!loding" class="spin" src="./tail-spin.svg">
                     <i v-if="!done" class="icon-toast"></i>
                     <span class="icon-msg">{{msg}}</span>
                 </section>
@@ -32,7 +32,6 @@ export default {
     },
     mounted(){
         if(!this.msg){
-            console.log(this.msg);
             this.msg = 'loding...'
         }
     },
@@ -70,12 +69,14 @@ export default {
     height: .125rem;
     margin-top:1.5rem;
     margin-left: .5rem;
+    margin-bottom: .5rem;
     display: block;
     background: #fff;
     line-height: 0;
     font-size:0;
     vertical-align: middle;
     -webkit-transform: rotate(45deg);
+
 }
 .icon-toast::before{
     content:'/';
@@ -85,10 +86,14 @@ export default {
     background: #fff;
     -webkit-transform: rotate(-90deg) translateY(-50%) translateX(50%);
 }
+.spin{
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-top: .25rem;margin-bottom: .25rem;
+}
 .icon-msg{
     font-size: .5rem;
     display: block;
-    padding: .5rem 0 0 0;
 }
 .fade-enter-active, .fade-leave-active {
     transition: .2s
@@ -97,33 +102,5 @@ export default {
     opacity: 0
 }
 
-.help{
-    width: 30px;
-    height: 30px;
-    border: 1px #fff solid;
-    border-radius: 50%;
-    -webkit-animation: rotation 1s ease-in-out infinite;
-       -moz-animation: rotation 1s ease-in-out infinite;
-            animation: rotation 1s ease-in-out infinite;
-    margin: 30px auto;
-}
-.help:after{
-    width: 5px;
-    height: 5px;
-    background-color: rgba(255,255,255,1);
-    border-radius: 100%;
-    position: absolute;
-    content: "";
-}
-@-webkit-keyframes rotation{
-    0%{-webkit-transform: rotate(0deg);}
-    100%{-webkit-transform: rotate(360deg);}
-}
-@-moz-keyframes rotation{
-    0%{-moz-transform: rotate(0deg);}
-    100%{-moz-transform: rotate(360deg);}
-}
-@keyframes rotation{
-    0%{transform: rotate(0deg);}
-    100%{transform: rotate(360deg);}
-}</style>
+
+</style>

@@ -13,26 +13,26 @@
 
 
         <!-- 显示默认时间 -->
-        <pickerTime
+        <PickerTime
             v-on:accept-result="acceptResultTime1"
             ref="pickerTime1"
-        ></pickerTime>
+        ></PickerTime>
 
         <!-- 显示设置时间 -->
-        <pickerTime
+        <PickerTime
             v-bind:setCurrDate="[2016,2,29]"
             v-on:accept-result="acceptResultTime2"
             ref="pickerTime2"
-        ></pickerTime>
+        ></PickerTime>
 
         <!-- 设置时间段 -->
-        <pickerTime
+        <PickerTime
             v-bind:setMinDate="[2015,5,5]"
             v-bind:setMaxDate="[2018,5,5]"
 
             v-on:accept-result="acceptResultTime3"
             ref="pickerTime3"
-        ></pickerTime>
+        ></PickerTime>
 
 
 
@@ -40,10 +40,6 @@
 </template>
 
 <script>
-
-import pickertime from '../../packages/pickerTime/index.js';
-
-
 function getNowFormatDate() {
     var date = new Date();
     var seperator1 = "-";
@@ -71,7 +67,6 @@ export default {
         }
     },
     components:{
-        PickerTime      :pickertime,
     },
     methods:{
 
