@@ -44,14 +44,14 @@ Vue.component(Loding.name, Loding)
 > Dialog
 
 ``` HTML
-<p class="demo-list" v-on:click="tips1">弹出confirm<span>{{tipsMsg1}}</span></p>
+<p class="demo-list" v-on:click="tips1">confirm<span>{{tipsMsg1}}</span></p>
 ```
 
 ``` javascript
 let that = this;
 this.$dialog.confirm({
-    tit:'测试标题',
-    msg:'测试信息',
+    tit:'Test title',
+    msg:'Test Message',
     callback:function(data){
         that.tipsMsg1 = data;
     }
@@ -166,13 +166,12 @@ acceptResultAddress1(val){
     ref="pickerTime2"
 ></pickerTime>
 
-<p class="demo-list" v-on:click="showPickerTime3">设置时间段：[Min:2015-5]-[Max2018-5] <span>{{resTime3}}</span></p>
+<p class="demo-list" v-on:click="showPickerTime3">Set the time period：[Min:2015-5]-[Max2018-5] <span>{{resTime3}}</span></p>
 
 <!-- Set the time period -->
 <pickerTime
     v-bind:setMinDate="[2015,5,5]"
     v-bind:setMaxDate="[2018,5,5]"
-
     v-on:accept-result="acceptResultTime3"
     ref="pickerTime3"
 ></pickerTime>
