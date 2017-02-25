@@ -2,7 +2,7 @@
     <section class="demo">
         <p class="demo-list" v-on:click="showPickerSelect1">默认的select:<span>{{resSelect1}}</span></p>
 
-        <p class="demo-list" v-on:click="showPickerSelect1">设置初始select:[城东区]<span>{{resSelect1}}</span></p>
+        <p class="demo-list" v-on:click="showPickerSelect1">设置初始select:<span>{{resSelect1}}</span></p>
 
 
 
@@ -13,6 +13,7 @@
             v-on:accept-result="acceptResultSeletc1"
             ref="pickerSelect1"
         ></PickerSelect>
+        
     </section>
 </template>
 
