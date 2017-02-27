@@ -1,5 +1,6 @@
 import Dialog from './dialog/';
 import Loding from './Loding/';
+import Toast from './toast/';
 
 import Picker from './picker/';
 import PickerSelect from './pickerSelect/';
@@ -41,8 +42,9 @@ Vvx.install = (Vue, options) => {
 		// 逻辑...
 	}
 
-	Vue.$dialog = Vue.prototype.$dialog = Dialog;
+	Vue.$Dialog = Vue.prototype.$dialog = Dialog;
 	Vue.$Loding = Vue.prototype.$loding = Loding;
+	Vue.$Toast = Vue.prototype.$toast = Toast;
 }
 
 export default Vvx;

@@ -87,6 +87,15 @@ export default new Router({
             component: resolve => require(['../components/loding/index.vue'], resolve)
         },
         {
+            path: '/toast',
+            meta: {
+                auth: false,
+                title: 'toast'
+            },
+            name: 'toast',
+            component: resolve => require(['../components/toast/index.vue'], resolve)
+        },
+        {
             path: '*',
             redirect: {name:'home'}
         }

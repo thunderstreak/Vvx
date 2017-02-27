@@ -3,28 +3,31 @@
         <img class="log" src="../assets/logo.png">
         <ul class="hello-list">
             <li>
-                <router-link tag="span" to="/swiper">swiper</router-link>
+                <router-link tag="a" to="/swiper">swiper</router-link>
             </li>
             <li>
-                <router-link tag="span" to="/picker">picker</router-link>
+                <router-link tag="a" to="/picker">picker</router-link>
             </li>
             <li>
-                <router-link tag="span" to="/pickerSelect">pickerSelect</router-link>
+                <router-link tag="a" to="/pickerSelect">pickerSelect</router-link>
             </li>
             <li>
-                <router-link tag="span" to="/pickerTime">pickerTime</router-link>
+                <router-link tag="a" to="/pickerTime">pickerTime</router-link>
             </li>
             <li>
-                <router-link tag="span" to="/pickerAddress">pickerAddress</router-link>
+                <router-link tag="a" to="/pickerAddress">pickerAddress</router-link>
             </li>
             <li>
-                <router-link tag="span" to="/switch">switch</router-link>
+                <router-link tag="a" to="/switch">switch</router-link>
             </li>
             <li>
-                <router-link tag="span" to="/dialog">dialog</router-link>
+                <router-link tag="a" to="/dialog">dialog</router-link>
             </li>
             <li>
-                <router-link tag="span" to="/loding">loding</router-link>
+                <router-link tag="a" to="/loding">loding</router-link>
+            </li>
+            <li>
+                <router-link tag="a" to="/toast">toast</router-link>
             </li>
         </ul>
     </div>
@@ -44,7 +47,7 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .hello{
-
+    font-size: .35rem;
 }
 .hello-list{
     height: auto;
@@ -54,5 +57,8 @@ export default {
     height: 1rem;
     line-height: 1rem;
     border-bottom: 1px #ccc solid;
+}
+.hello-list>li>a{
+    display: block;
 }
 </style>
