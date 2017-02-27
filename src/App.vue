@@ -6,7 +6,12 @@
 
 <script>
 export default {
-  name: 'app'
+    name: 'app',
+    data(){
+        return{
+            msg:'app'
+        }
+    }
 }
 </script>
 

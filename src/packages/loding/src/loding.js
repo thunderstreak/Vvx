@@ -14,20 +14,20 @@ export default {
         component.isshow = false;
         component.loding = false;
         component.done = true;
-        defaults(params);
+        transmitDefaultsParams(params);
     },
     done:(params) => {
         component.isshow = false;
         component.done = false;
         component.loding = true;
-        defaults(params);
+        transmitDefaultsParams(params);
     },
     hide:(params) => {
         component.isshow = true;
     }
 }
 
-function defaults(params){
+function transmitDefaultsParams(params){
     for(let k in params){
         component[k] = params[k];
     }
