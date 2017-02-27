@@ -31,6 +31,5 @@ function defaults(params){
     for(let k in params){
         component[k] = params[k];
     }
-
     doc.appendChild(component.$el);
 }
