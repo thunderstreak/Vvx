@@ -1,7 +1,9 @@
 <template lang="html">
-    <section class="toast">
-        {{msg}}
-    </section>
+    <transition name="fade">
+        <section class="toast">
+            {{msg}}
+        </section>
+    </transition>
 </template>
 
 <script>
@@ -13,7 +15,7 @@ export default {
         }
     },
     created(){
-
+        console.log(this.isshow);
     },
     mounted(){
 
@@ -25,5 +27,10 @@ export default {
 </script>
 
 <style lang="css">
-
+.fade-enter-active, .fade-leave-active {
+    transition: .2s
+}
+.fade-enter, .fade-leave-active {
+    opacity: 0
+}
 </style>
