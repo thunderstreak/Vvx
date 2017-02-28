@@ -3,7 +3,7 @@
 
         <section v-if="!isshow">
 
-                <section class="loding"></section>
+                <section class="layer"></section>
                 <section class="loding-center">
                     <img v-if="!loding" class="spin" src="./tail-spin.svg">
                     <i v-if="!done" class="icon-toast"></i>
@@ -31,7 +31,7 @@ export default {
 
     },
     mounted(){
-        
+
     },
     methods:{
 
@@ -40,7 +40,7 @@ export default {
 </script>
 
 <style lang="css">
-.loding{
+.layer{
     position: fixed;
     z-index: 1000;
     top: 0;
