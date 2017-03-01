@@ -47,15 +47,15 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 .hello{
-    font-size: .35rem;
+    font-size: .5rem;
 }
 .hello-list{
     height: auto;
 }
 .hello-list>li{
-    padding: 0 .25rem;
-    height: 1rem;
-    line-height: 1rem;
+    padding: 0 .5rem;
+    height: 1.25rem;
+    line-height: 1.25rem;
     border-bottom: 1px #ccc solid;
 }
 .hello-list>li>a{

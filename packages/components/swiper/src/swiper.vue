@@ -13,8 +13,9 @@
 
         </div>
         <ul class="silderbox-item" ref="silderboxItem">
-            <li v-for="(i,idx) in imgs.length" v-bind:class="{'curr': idx==imgIndex}"></span>
+            <li v-for="(i,idx) in imgs.length" v-bind:class="{'curr': idx==imgIndex}">{{idx}}</li>
         </ul>
+        {{imgIndex}}
     </section>
 </template>
 
@@ -23,12 +24,12 @@ export default {
     name:'Swiper',
     data(){
         return {
-            msg:'silder',
-            imgs:this.imgArr,
-            imgIndex:0,//图片下标
-            boxWidth:0,//silderbox-img 的总宽度
-            startOffset:0,//上一个图片的offsetX值
-            endOffset:0,//最后一个图片的offsetX值
+            msg             :'silder',
+            imgs            :this.imgArr,
+            imgIndex        :0,//图片下标
+            boxWidth        :0,//silderbox-img 的总宽度
+            startOffset     :0,//上一个图片的offsetX值
+            endOffset       :0,//最后一个图片的offsetX值
         }
     },
     props:{
@@ -150,7 +151,12 @@ export default {
                 }, this.auto);
             }
         },
-        
+
+    },
+    watch:{
+        imgIndex:(n,o) => {
+            console.log(n);
+        }
     }
 }
 </script>

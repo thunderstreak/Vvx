@@ -26,11 +26,11 @@ a{color: #000;}
 }
 
 .demo{
-    margin:0 .25rem;
+    margin:0 .5rem;
 }
 .demo-list{
-    height: 1rem;
-    line-height: 1rem;
+    height: 1.25rem;
+    line-height: 1.25rem;
     border-bottom: 1px #ccc solid;
     display: box;
     display: -webkit-box;

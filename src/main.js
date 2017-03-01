@@ -7,8 +7,12 @@ import router from './router'
 import './javascripts/flexiblecssjs.js';
 import './styles/index.css';
 
-// import {install as Vvx} from '../packages/index.js';
-import {install as Vvx} from 'vvxui';
+document.addEventListener('DOMContentLoaded', function() {
+  if (window.FastClick) window.FastClick.attach(document.body);
+}, false);
+
+import {install as Vvx} from '../packages/index.js';
+// import {install as Vvx} from 'vvxui';
 
 Vue.use(Vvx);
 

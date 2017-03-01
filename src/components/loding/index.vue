@@ -1,7 +1,7 @@
 <template lang="html">
     <section class="demo">
-        <p class="demo-list" v-on:click="loding1">显示Loding</p>
-        <p class="demo-list" v-on:click="loding2">显示Done</p>
+        <p class="demo-list" v-on:click="loding1">显示Loding <span></span></p>
+        <p class="demo-list" v-on:click="loding2">显示Done <span></span></p>
     </section>
 </template>
 

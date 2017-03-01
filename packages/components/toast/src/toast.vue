@@ -44,9 +44,13 @@ export default {
     left: 0;
     bottom: 0;
 
-    display: flex;
+    /*display: flex;
+    display: -webkit-flex;
     justify-content: center;
+    -webkit-justify-content: center;
     align-items: center;
+    -webkit-align-items: center;*/
+
 }
 .toast-center{
 
@@ -57,13 +61,13 @@ export default {
     border-radius: .1rem;
     background: rgba(40,40,40,.75);
     color: #fff;
-    /*position: relative;
+    position: relative;
     top: 50%;
     left: 50%;
     transform:translate(-50%,-50%);
     transform-origin:50% 50%;
     -webkit-transform:translate(-50%,-50%);
-    -webkit-transform-origin:50% 50%;*/
+    -webkit-transform-origin:50% 50%;
 }
 .toast-top{
     position: absolute;
