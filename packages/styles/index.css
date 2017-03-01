@@ -1,0 +1,82 @@
+html{
+    border:1px red solid;
+}
+
+.pickerBox{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: rgba(0,0,0,.5);
+    overflow-y: hidden;
+}
+.picker-box{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: 6rem;
+    background: #fff;
+    z-index: 9999;
+}
+.picker-box .picker-box-tit{
+    height: calc(1rem);
+    line-height: 1rem;
+    border-bottom: 1px #ccc solid;
+
+    display: box;
+    display: -webkit-box;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+    text-align: center;
+    font-size: .45rem;
+    >span{
+        width: 20%;
+    }
+}
+.picker-box .picker-box-content{
+    height: 5rem;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+
+    display: box;
+    display: -webkit-box;
+    display: flex;
+    display: -webkit-flex;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+
+}
+.picker-box .picker-box-content .picker-box-list{
+    width: 33.33%;
+    float: left;
+    text-align: center;
+    transition: all .3s ease-out;
+
+}
+.picker-box .picker-box-content .picker-box-list>li{
+    height: 1rem;
+    line-height: 1rem;
+    font-size: .5rem;
+}
+.fadeOut-enter-active, .fadeOut-leave-active {
+    transition: .5s;
+}
+.fadeOut-enter, .fadeOut-leave-active {
+    opacity: 0;
+}
+.fadeIn-enter-active, .fadeIn-leave-active {
+    transition: .25s;
+}
+.fadeIn-enter, .fadeIn-leave-active {
+    opacity: 0;
+    transform: translateY(6rem);
+}

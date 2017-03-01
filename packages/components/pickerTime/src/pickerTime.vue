@@ -1,15 +1,15 @@
 <template lang="html">
-    <transition name="fadeOutDate">
+    <transition name="fadeOut">
 
 
-        <section class="pickerDate" v-on:click="show = true" v-show="!show">
-            <transition name="fadeInDate">
-                <div class="picker-date" v-show="!show">
-                    <div class="picker-date-tit">
+        <section class="pickerBox" v-on:click="show = true" v-show="!show">
+            <transition name="fadeIn">
+                <div class="picker-box" v-show="!show">
+                    <div class="picker-box-tit">
                         <span v-on:click="show = true">取消</span>
                         <span v-on:click="enter">确定</span>
                     </div>
-                    <div class="picker-date-content">
+                    <div class="picker-box-content">
                         <Picker
                         v-bind:PropData="year"
                         v-bind:setIndex="setYearCurrIndex"
@@ -227,82 +227,5 @@ export default {
 </script>
 
 <style lang="less">
-.pickerDate{
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 9999;
-    background: rgba(0,0,0,.5);
-    overflow-y: hidden;
-}
-.picker-date{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    width: 100%;
-    height: 6rem;
-    background: #fff;
-    z-index: 9999;
-    .picker-date-tit{
-        height: calc(1rem);
-        line-height: 1rem;
-        border-bottom: 1px #ccc solid;
 
-        display: box;
-        display: -webkit-box;
-        display: flex;
-        display: -webkit-flex;
-        justify-content: space-between;
-        -webkit-justify-content: space-between;
-        text-align: center;
-        font-size: .45rem;
-        >span{
-            width: 20%;
-        }
-    }
-    .picker-date-content{
-        height: 5rem;
-        width: 100%;
-        overflow: hidden;
-        position: relative;
-
-        display: box;
-        display: -webkit-box;
-        display: flex;
-        display: -webkit-flex;
-        justify-content: space-between;
-        -webkit-justify-content: space-between;
-
-        .picker-date-list{
-            width: 33.33%;
-            float: left;
-            text-align: center;
-            transition: all .3s ease-out;
-            >li{
-                height: 1rem;
-                line-height: 1rem;
-                font-size: .5rem;
-            }
-
-        }
-    }
-}
-.fadeOutDate-enter-active, .fadeOutDate-leave-active {
-    transition: .5s;
-}
-.fadeOutDate-enter, .fadeOutDate-leave-active {
-    opacity: 0;
-}
-.fadeInDate-enter-active, .fadeInDate-leave-active {
-    transition: .25s;
-}
-.fadeInDate-enter, .fadeInDate-leave-active {
-    opacity: 0;
-    transform: translateY(6rem);
-}
 </style>

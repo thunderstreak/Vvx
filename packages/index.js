@@ -9,7 +9,8 @@ import PickerTime from './components/pickerTime/';
 import Switchs from './components/switch/';
 import Swiper from './components/swiper/';
 
-const tool = require('./javascripts/tool.js');
+import tool from './javascripts/tool.js';
+import './styles/index.css';
 
 const components = [
 	Picker,
