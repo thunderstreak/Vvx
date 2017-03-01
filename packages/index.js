@@ -53,9 +53,9 @@ const install = function(Vue,opts = {}) {
 	}
 
 	Vue.$tool 	= Vue.prototype.$tool 	= tool;
-	Vue.$dialog = Vue.prototype.$dialog = Dialog.default;
-	Vue.$loding = Vue.prototype.$loding = Loding.default;
-	Vue.$toast 	= Vue.prototype.$toast 	= Toast.default;
+	Vue.$dialog = Vue.prototype.$dialog = Dialog;
+	Vue.$loding = Vue.prototype.$loding = Loding;
+	Vue.$toast 	= Vue.prototype.$toast 	= Toast;
 }
 
 // auto install
