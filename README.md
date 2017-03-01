@@ -5,12 +5,12 @@
 ## Install
 
 ```shell
-npm install
+npm install vvxui
 ```
 ## Quick Start
 ``` javascript
 import Vue from 'vue'
-import Vvx from 'Vvx'
+import {install as Vvx} from 'vvxui';
 
 Vue.use(Vvx)
 
@@ -72,7 +72,7 @@ loding1(){
     	msg:'loding'
     });
 },
-//hide 
+//hide
 this.$loding.hide();
 ```
 All methods:`loding,done`.
