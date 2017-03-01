@@ -5,12 +5,12 @@
 ## Install
 
 ```shell
-npm install
+npm install vvxui
 ```
 ## Quick Start
 ``` javascript
 import Vue from 'vue'
-import Vvx from 'Vvx'
+import Vvx from 'vvxui'
 
 Vue.use(Vvx)
 
