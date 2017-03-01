@@ -1,5 +1,5 @@
-import Dialog from './dialog/';
-import Loding from './Loding/';
+/*import Dialog from './dialog/';
+import Loding from './loding/';
 import Toast from './toast/';
 
 import Picker from './picker/';
@@ -7,9 +7,20 @@ import PickerSelect from './pickerSelect/';
 import PickerAddress from './pickerAddress/';
 import PickerTime from './pickerTime/';
 import Switchs from './switch/';
-import Swiper from './swiper/';
+import Swiper from './swiper/';*/
 
-let Vvx = {};
+const Dialog 			= require('./dialog/').default;
+const Loding 			= require('./loding/').default;
+const Toast 			= require('./toast/').default;
+
+const Picker 			= require('./picker/').default;
+const PickerSelect 		= require('./pickerSelect/').default;
+const PickerAddress 	= require('./pickerAddress/').default;
+const PickerTime 		= require('./pickerTime/').default;
+const Switchs 			= require('./switch/').default;
+const Swiper 			= require('./swiper/').default;
+
+const Vvx = {};
 
 Vvx.install = (Vue, options) => {
 
@@ -47,7 +58,9 @@ Vvx.install = (Vue, options) => {
 	Vue.$Toast = Vue.prototype.$toast = Toast;
 }
 
-export default Vvx;
+
+module.exports = Vvx;
+// export default Vvx;
 
 /*const version = '0.0.1';
 const install = function(Vue) {

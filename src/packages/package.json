@@ -1,6 +1,6 @@
 {
-  "name": "vvx",
-  "version": "1.0.0",
+  "name": "vvxui",
+  "version": "1.0.1",
   "description": "Vvx UI Components",
   "main": "index.js",
   "scripts": {

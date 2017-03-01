@@ -1,0 +1,88 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "vvxui",
+        "scope": null,
+        "escapedName": "vvxui",
+        "name": "vvxui",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "E:\\webpackVue2.0\\vvx"
+    ]
+  ],
+  "_from": "vvxui@latest",
+  "_id": "vvxui@1.0.1",
+  "_inCache": true,
+  "_location": "/vvxui",
+  "_nodeVersion": "7.5.0",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/vvxui-1.0.1.tgz_1488337295913_0.622835589107126"
+  },
+  "_npmUser": {
+    "name": "typec",
+    "email": "821470904@qq.com"
+  },
+  "_npmVersion": "3.10.10",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "vvxui",
+    "scope": null,
+    "escapedName": "vvxui",
+    "name": "vvxui",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#DEV:/",
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/vvxui/-/vvxui-1.0.1.tgz",
+  "_shasum": "d73d3e743d99eea8a8f8e6efa7ec5534724a0722",
+  "_shrinkwrap": null,
+  "_spec": "vvxui",
+  "_where": "E:\\webpackVue2.0\\vvx",
+  "author": {
+    "name": "y"
+  },
+  "bugs": {
+    "url": "https://github.com/yb707893334/Vvx/issues"
+  },
+  "dependencies": {},
+  "description": "Vvx UI Components",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "d73d3e743d99eea8a8f8e6efa7ec5534724a0722",
+    "tarball": "https://registry.npmjs.org/vvxui/-/vvxui-1.0.1.tgz"
+  },
+  "homepage": "https://github.com/yb707893334/Vvx#readme",
+  "keywords": [
+    "Vvx",
+    "UI",
+    "Vue2.0"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "maintainers": [
+    {
+      "name": "typec",
+      "email": "821470904@qq.com"
+    }
+  ],
+  "name": "vvxui",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yb707893334/Vvx.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "1.0.1"
+}

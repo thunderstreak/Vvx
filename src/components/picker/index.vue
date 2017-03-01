@@ -91,8 +91,8 @@ export default {
             resTime3:'时间段'
         }
     },
-    components:{
-
+    created(){
+        console.log(this.$tool);
     },
     methods:{
         // 默认地址选择

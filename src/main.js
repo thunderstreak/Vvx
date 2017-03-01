@@ -7,9 +7,11 @@ import router from './router'
 import './javascripts/flexiblecssjs.js';
 import './styles/index.css';
 
-import Vvx from './packages/index.js';
+import {install as Vvx} from '../packages/index.js';
+// import Vvx from 'vvxui';
 
 Vue.use(Vvx);
+
 
 // 使用全局方法或属性
 // Vue.myGlobalMethod();
