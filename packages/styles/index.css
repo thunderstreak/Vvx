@@ -1,7 +1,4 @@
-html{
-    border:1px red solid;
-}
-
+/*picker css*/
 .pickerBox{
     position: fixed;
     top: 0;
@@ -67,6 +64,7 @@ html{
     line-height: 1rem;
     font-size: .5rem;
 }
+/*picker effect*/
 .fadeOut-enter-active, .fadeOut-leave-active {
     transition: .5s;
 }
@@ -80,3 +78,5 @@ html{
     opacity: 0;
     transform: translateY(6rem);
 }
+
+/**/
