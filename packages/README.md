@@ -10,7 +10,7 @@ npm install vvxui
 ## Quick Start
 ``` javascript
 import Vue from 'vue'
-import Vvx from 'vvxui'
+import {install as Vvx} from 'vvxui';
 
 Vue.use(Vvx)
 
