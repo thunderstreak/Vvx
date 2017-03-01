@@ -7,7 +7,7 @@ import router from './router'
 import './javascripts/flexiblecssjs.js';
 import './styles/index.css';
 
-import Vvx from './packages/vvx.js';
+import Vvx from './packages/index.js';
 
 Vue.use(Vvx);
 

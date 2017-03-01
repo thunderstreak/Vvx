@@ -1,0 +1,24 @@
+{
+  "name": "vvx",
+  "version": "1.0.0",
+  "description": "Vvx UI Components",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yb707893334/Vvx.git"
+  },
+  "keywords": [
+    "Vvx",
+    "UI",
+    "Vue2.0"
+  ],
+  "author": "y",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yb707893334/Vvx/issues"
+  },
+  "homepage": "https://github.com/yb707893334/Vvx#readme"
+}
