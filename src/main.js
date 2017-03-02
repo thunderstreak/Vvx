@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', function() {
   if (window.FastClick) window.FastClick.attach(document.body);
 }, false);
 
-import {install as Vvx} from '../packages/index.js';
-// import {install as Vvx} from 'vvxui';
+// import {install as Vvx} from '../packages/index.js';
+import {install as Vvx} from 'vvxui';
 
 Vue.use(Vvx);
 
