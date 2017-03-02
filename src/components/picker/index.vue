@@ -92,7 +92,7 @@ export default {
         }
     },
     created(){
-        console.log(this.$tool);
+        // console.log(this.$tool);
     },
     methods:{
         // 默认地址选择

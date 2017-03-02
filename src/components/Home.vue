@@ -1,6 +1,7 @@
 <template>
     <div class="hello">
         <img class="log" src="../assets/logo.png">
+        <h1 class="Vvx">VvxUI</h1>
         <ul class="hello-list">
             <li>
                 <router-link tag="a" to="/swiper">swiper</router-link>
@@ -46,6 +47,9 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.Vvx{
+    text-align: center;
+}
 .hello{
     font-size: .5rem;
 }
