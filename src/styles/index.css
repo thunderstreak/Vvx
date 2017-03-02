@@ -40,6 +40,7 @@ a{color: #000;}
     -webkit-justify-content: space-between;
     background: url('../assets/setting_right.png') no-repeat right;
     background-size: 0.2rem 0.3466666666666667rem;
+    font-size: 0.45rem;
 }
 .demo-list>span{
     padding-right: .5rem;

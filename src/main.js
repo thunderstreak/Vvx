@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // import {install as Vvx} from '../packages/index.js';
 
+// import {install as Vvx} Vvx from 'vvxui';
 import * as Vvx from 'vvxui';
 // console.log(Vvx);
 

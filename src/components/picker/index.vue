@@ -1,17 +1,17 @@
 <template lang="html">
-    <div class="pickers">
+    <div class="demo">
 
-        <p class="pickers-p" v-on:click="showPickerAddress1">显示默认地址： <span>{{resAddress1}}</span></p>
+        <p class="demo-list" v-on:click="showPickerAddress1">显示默认地址： <span>{{resAddress1}}</span></p>
 
-        <p class="pickers-p" v-on:click="showPickerAddress2">显示设置地址： <span>{{resAddress2}}</span></p>
+        <p class="demo-list" v-on:click="showPickerAddress2">显示设置地址： <span>{{resAddress2}}</span></p>
 
-        <p class="pickers-p" v-on:click="showPickerAddress3">显示省市： <span>{{resAddress3}}</span></p>
+        <p class="demo-list" v-on:click="showPickerAddress3">显示省市： <span>{{resAddress3}}</span></p>
 
-        <p class="pickers-p" v-on:click="showPickerTime1">显示默认当前时间： <span>{{resTime1}}</span></p>
+        <p class="demo-list" v-on:click="showPickerTime1">显示默认当前时间： <span>{{resTime1}}</span></p>
 
-        <p class="pickers-p" v-on:click="showPickerTime2">显示设置时间： <span>{{resTime2}}</span></p>
+        <p class="demo-list" v-on:click="showPickerTime2">显示设置时间： <span>{{resTime2}}</span></p>
 
-        <p class="pickers-p" v-on:click="showPickerTime3">显示设置时间段： <span>{{resTime3}}</span></p>
+        <p class="demo-list" v-on:click="showPickerTime3">显示设置时间段： <span>{{resTime3}}</span></p>
 
 
         <!-- 显示默认地址： -->
