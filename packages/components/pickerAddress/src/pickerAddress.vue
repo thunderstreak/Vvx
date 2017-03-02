@@ -36,7 +36,7 @@
 
 <script>
 import PropData from '../../../assets/AreaData.json';
-// import pickers from '../../picker/index.js';
+import pickers from '../../picker/index.js';
 
 export default {
     name:'PickerAddress',
@@ -101,7 +101,7 @@ export default {
         }
     },
     components:{
-        // Picker:pickers
+        Picker:pickers
     },
     created(){
         // 如果没有设置省市区使用默认

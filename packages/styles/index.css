@@ -34,9 +34,9 @@
     -webkit-justify-content: space-between;
     text-align: center;
     font-size: .45rem;
-    >span{
-        width: 20%;
-    }
+}
+.picker-box .picker-box-tit>span{
+    width: 20%;
 }
 .picker-box .picker-box-content{
     height: 5rem;

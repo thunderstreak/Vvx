@@ -19,7 +19,7 @@ import {
   	Dialog,
   	Loding
   	// ...
-} from 'Vvx'
+} from 'vvxui'
 
 Vue.component(Dialog.name, Dialog)
 Vue.component(Loding.name, Loding)

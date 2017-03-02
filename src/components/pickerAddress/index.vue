@@ -38,7 +38,8 @@
 
 <script>
 
-import metadata from '../../packages/pickerAddress/src/AreaData.json';
+import metadata from '../../assets/AreaData.json';
+
 export default {
     name:'picker',
     data(){

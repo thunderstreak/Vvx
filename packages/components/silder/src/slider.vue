@@ -24,15 +24,15 @@ import test from './testComponents/test.js';
 export default {
     data(){
         return{
-            msg:'sliderRightClose',
-            startX:0,//第一次touch的x轴
-            startY:0,//第一次touch的y轴
-            endX:0,//最后一次touch的x轴
-            endY:0,//最后一次touch的y轴
-            direction:0,//滑动的方向
-            offsetX:0,//x轴的偏移量
-            prevEle:null,//上一个touch元素
-            markWidth:null,//需要偏移的距离px
+            msg         :'sliderRightClose',
+            startX      :0,//第一次touch的x轴
+            startY      :0,//第一次touch的y轴
+            endX        :0,//最后一次touch的x轴
+            endY        :0,//最后一次touch的y轴
+            direction   :0,//滑动的方向
+            offsetX     :0,//x轴的偏移量
+            prevEle     :null,//上一个touch元素
+            markWidth   :null,//需要偏移的距离px
             items:[
                 {
                     index:1,
