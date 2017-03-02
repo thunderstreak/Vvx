@@ -12,10 +12,9 @@
             </slot>
 
         </div>
-        <ul class="silderbox-item" ref="silderboxItem">
-            <li v-for="(i,idx) in imgs.length" v-bind:class="{'curr': idx==imgIndex}">{{idx}}</li>
+        <ul class="silderbox-item" ref="silderboxItem" v-bind="{'style' : 'text-align:'+ align}">
+            <li v-for="(i,idx) in imgs.length" v-bind:class="{'curr': idx==imgIndex}"></li>
         </ul>
-        {{imgIndex}}
     </section>
 </template>
 
@@ -42,23 +41,11 @@ export default {
                 return []
             }
         },
-        show:{
+        align:{
             type:String,
             default:()=>{
-                return 'block';
+                return 'center';
             }
-        }
-    },
-    mounted(){
-        this.silderBox = this.$refs.silderboxImg;
-        let silderItem = this.$refs.silderboxItem;
-        this.autoPlay();
-        if(this.show == 'none'){
-            silderItem.style='display:none;';
-        }else if(this.show == 'left'){
-            silderItem.style='text-align:left;';
-        }else if(this.show == 'right'){
-            silderItem.style='text-align:right;';
         }
     },
     created(){
@@ -69,6 +56,20 @@ export default {
             this.windowWidth = window.screen.width;
         }
         this.boxWidth = this.imgs.length * this.windowWidth ;
+    },
+    mounted(){
+        this.silderBox = this.$refs.silderboxImg;
+        let silderItem = this.$refs.silderboxItem;
+        this.autoPlay();
+        /*if(this.show == 'none'){
+            silderItem.style='display:none;';
+        }else if(this.show == 'left'){
+            silderItem.style='text-align:left;';
+        }else if(this.show == 'right'){
+            silderItem.style='text-align:right;';
+        }else{
+            silderItem.style='text-align:center;';
+        }*/
     },
     methods:{
         touchstart(e){
@@ -152,11 +153,6 @@ export default {
             }
         },
 
-    },
-    watch:{
-        imgIndex:(n,o) => {
-            console.log(n);
-        }
     }
 }
 </script>

@@ -11,9 +11,9 @@
         </Swiper>
 
         <p class="demo-list">显示圆点位置：left</p>
-        <!-- <Swiper v-bind:auto="3000" v-bind:imgArr="swiper" v-bind:show="'left'"></Swiper> -->
+        <Swiper v-bind:imgArr="swiper" v-bind:align="'left'"></Swiper>
         <p class="demo-list">显示圆点位置：right</p>
-        <!-- <Swiper v-bind:auto="3000" v-bind:imgArr="swiper" v-bind:show="'right'"></Swiper> -->
+        <Swiper v-bind:imgArr="swiper" v-bind:align="'right'"></Swiper>
         <br>
     </div>
 </template>

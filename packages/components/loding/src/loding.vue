@@ -3,9 +3,9 @@
 
         <section v-if="!isshow">
 
-                <section class="layer"></section>
+                <section class="layer" v-on:click="or"></section>
                 <section class="loding-center">
-                    <img v-if="!loding" class="spin" src="./tail-spin.svg">
+                    <img v-if="!loding" class="spin" src="../../../assets/tail-spin.svg">
                     <i v-if="!done" class="icon-toast"></i>
                     <span class="icon-msg">{{msg}}</span>
                 </section>
@@ -20,11 +20,12 @@ export default {
     name:'Loding',
     data(){
         return{
-            msg     :'',
+            msg     :'Loding',
             callback:null,
             isshow  :true,
             done    :true,
             loding  :true,
+            callback:Function
         }
     },
     created(){
@@ -34,6 +35,11 @@ export default {
 
     },
     methods:{
+        or(){
+            this.callback(this.isshow);
+        }
+    },
+    destroyed(){
 
     }
 }
@@ -47,6 +53,7 @@ export default {
     right: 0;
     left: 0;
     bottom: 0;
+    background: rgba(40,40,40,.75);
 }
 .loding-center{
     position: fixed;

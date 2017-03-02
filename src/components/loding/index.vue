@@ -2,6 +2,7 @@
     <section class="demo">
         <p class="demo-list" v-on:click="loding1">显示Loding <span></span></p>
         <p class="demo-list" v-on:click="loding2">显示Done <span></span></p>
+        {{msg}}
     </section>
 </template>
 
@@ -19,8 +20,12 @@ export default {
     },
     methods:{
         loding1(){
+
             this.$loding.loding({
-                msg:'loding'
+                msg:'loding',
+                callback:(data)=>{
+                    this.msg = data;
+                }
             });
 
             setTimeout(()=>{
@@ -39,6 +44,6 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style scoped>
 
 </style>

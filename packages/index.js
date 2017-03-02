@@ -21,7 +21,7 @@ const components = [
 	Swiper
 ];
 
-const version = '1.0.1';
+const version = '1.0.4';
 
 const install = function(Vue,opts = {}) {
 	if (install.installed) return;
