@@ -54,7 +54,7 @@
   },
   "dependencies": {
       "less": "^2.7.2",
-      "less-loader": "^2.2.3",
+      "less-loader": "^2.2.3"
   },
   "description": "Vvx UI Components",
   "devDependencies": {},
