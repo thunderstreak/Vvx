@@ -1,15 +1,15 @@
-import Dialog from './components/dialog/';
-import Loding from './components/loding/';
-import Toast from './components/toast/';
+import Dialog 			from './components/dialog/';
+import Loding 			from './components/loding/';
+import Toast 			from './components/toast/';
 
-import Picker from './components/picker/';
-import PickerSelect from './components/pickerSelect/';
-import PickerAddress from './components/pickerAddress/';
-import PickerTime from './components/pickerTime/';
-import Switchs from './components/switch/';
-import Swiper from './components/swiper/';
+import Picker 			from './components/picker/';
+import PickerSelect 	from './components/pickerSelect/';
+import PickerAddress 	from './components/pickerAddress/';
+import PickerTime 		from './components/pickerTime/';
+import Switchs 			from './components/switch/';
+import Swiper 			from './components/swiper/';
 
-import tool from './javascripts/tool.js';
+import tool 			from './javascripts/tool.js';
 import './styles/index.css';
 
 const components = [
@@ -21,7 +21,7 @@ const components = [
 	Swiper
 ];
 
-const version = '1.0.4';
+const version = '1.0.7';
 
 const install = function(Vue,opts = {}) {
 	if (install.installed) return;
@@ -64,7 +64,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 };
 
 // module.exports = {
-export {
+export default{
 	install,
   	version,
 

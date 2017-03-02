@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <transition :name="transitionName" mode="out-in">
+        <transition v-bind:name="transitionName" mode="out-in">
             <router-view class="child-view"></router-view>
         </transition>
     </div>

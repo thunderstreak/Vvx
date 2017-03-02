@@ -12,7 +12,9 @@ document.addEventListener('DOMContentLoaded', function() {
 }, false);
 
 // import {install as Vvx} from '../packages/index.js';
-import {install as Vvx} from 'vvxui';
+
+import * as Vvx from 'vvxui';
+// console.log(Vvx);
 
 Vue.use(Vvx);
 
@@ -28,8 +30,8 @@ router.beforeEach((to,from,next)=>{
 
 /* eslint-disable no-new */
 new Vue({
-  el: '#app',
-  router,
-  template: '<App/>',
-  components: { App }
+    el: '#app',
+    router,
+    template: '<App/>',
+    components: { App }
 })
