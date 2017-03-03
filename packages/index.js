@@ -64,7 +64,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 };
 
 // module.exports = {
-export default{
+export {
 	install,
   	version,
 
