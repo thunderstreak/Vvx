@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // import {install as Vvx}  from 'vvxui';
 import * as Vvx from 'vvxui';
-console.log(Vvx);
+// console.log(Vvx);
 
 Vue.use(Vvx);
 
