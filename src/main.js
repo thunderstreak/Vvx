@@ -11,11 +11,11 @@ document.addEventListener('DOMContentLoaded', function() {
   if (window.FastClick) window.FastClick.attach(document.body);
 }, false);
 
-import {install as Vvx} from '../packages/index.js';
+// import {install as Vvx} from '../packages/index.js';
 
 // import {install as Vvx}  from 'vvxui';
-// import * as Vvx from 'vvxui';
-// console.log(Vvx);
+import * as Vvx from 'vvxui';
+console.log(Vvx);
 
 Vue.use(Vvx);
 
