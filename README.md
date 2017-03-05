@@ -32,6 +32,7 @@ Vue.component(Loding.name, Loding)
 ## Commonly used Components
 - Dialog
 - Loding
+- Totas
 - PickerAddress
 - PickerTime
 - PickerSelect
