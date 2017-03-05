@@ -83,6 +83,7 @@ All methods:`loding,done`.
 ``` HTML
 <p class="demo-list" v-on:click="showToast1">showToast</p>
 <p class="demo-list" v-on:click="showToast2">showToast position</p>
+<p class="demo-list" v-on:click="hideToast1">hideToast</p>
 ```
 
 ``` javascript
@@ -100,8 +101,17 @@ showToast2(){
     })
 },
 
+
 //hide
-this.$totas.hide();
+hideToast1(){
+	this.$toast.toast({
+		msg:'这是一个toast',
+	    position:'middle',
+	})
+	setTimeout(()=>{
+	    this.$toast.hide();
+	},2000)
+}
 ```
 All methods:`totas,hide`.
 
