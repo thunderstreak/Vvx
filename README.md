@@ -78,6 +78,25 @@ this.$loding.hide();
 ```
 All methods:`loding,done`.
 
+>Totas
+
+``` HTML
+<p class="demo-list" v-on:click="showToast1">showToast</p>
+```
+
+``` javascript
+// show
+showToast1(){
+    this.$toast.toast({
+        msg:'这是一个toast',
+        position:'middle',
+    })
+},
+//hide
+this.$totas.hide();
+```
+All methods:`totas,hide`.
+
 >PickerAddress
 
 ``` HTML
