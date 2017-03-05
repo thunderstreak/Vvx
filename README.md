@@ -82,16 +82,24 @@ All methods:`loding,done`.
 
 ``` HTML
 <p class="demo-list" v-on:click="showToast1">showToast</p>
+<p class="demo-list" v-on:click="showToast2">showToast position</p>
 ```
 
 ``` javascript
 // show
 showToast1(){
     this.$toast.toast({
-        msg:'这是一个toast',
-        position:'middle',
+        msg:'这是一个toast'
     })
 },
+
+showToast2(){
+    this.$toast.toast({
+    	msg:'这是一个toast',
+        position:'top',
+    })
+},
+
 //hide
 this.$totas.hide();
 ```
