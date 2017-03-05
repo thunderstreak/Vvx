@@ -43,6 +43,27 @@ export default {
         }
     }
 }
+
+// 发布订阅
+let pub = {
+    publish : function() {
+        dep.notify();
+    }
+}
+let sub1 = { update:function(){console.log(1);}}
+let sub2 = { update:function(){console.log(2);}}
+function Dep(){
+    this.subs = [sub1,sub2];
+}
+Dep.prototype.notify = function() {
+    console.log(this);
+    this.subs.forEach( function(sub) {
+        sub.update();
+    })
+}
+let dep = new Dep();
+pub.publish();
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
