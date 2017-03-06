@@ -30,6 +30,9 @@
             <li>
                 <router-link tag="a" to="/toast">toast</router-link>
             </li>
+            <li>
+                <router-link tag="a" to="/slider">slider</router-link>
+            </li>
         </ul>
     </div>
 </template>

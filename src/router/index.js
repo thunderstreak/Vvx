@@ -96,6 +96,15 @@ export default new Router({
             component: resolve => require(['../components/toast/index.vue'], resolve)
         },
         {
+            path: '/slider',
+            meta: {
+                auth: false,
+                title: 'slider'
+            },
+            name: 'slider',
+            component: resolve => require(['../components/slider/index.vue'], resolve)
+        },
+        {
             path: '*',
             redirect: {name:'home'}
         }
