@@ -36,7 +36,7 @@
 
 <script>
 import tool from '../javascripts/tool.js';
-console.log(tool);
+
 export default {
     name: 'hello',
     data () {

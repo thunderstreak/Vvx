@@ -1,11 +1,10 @@
-
 const libs={
     /**
     *数组去重
     *适用[string,number]类型
     *ES6 版 :Array.from(new Set(array));
     */
-    unique:(arr)=>{
+    unique:(arr) => {
         let res = [];
         let json = {};
         for(let i = 0;i < arr.length;i++){
@@ -16,12 +15,112 @@ const libs={
         }
         return res;
     },
+    unique2:(arr) => {
+        let [tempObj,newArray] = [{},[]];
+
+        for(let i = 0;i < arr.length;i++){
+            if(!tempObj[arr[i]]){
+                tempObj[arr[i]] = arr[i];
+                newArray.push(arr[i]);
+            }
+        }
+        return newArray;
+    },
+    /**
+    *冒泡排序
+    *@param:arr(Array)
+    */
+    dobbleSort:(arr) => {
+        for(let i = 0;i < arr.length-1;i++){
+            for(let j = 0;j < arr.length-i-1;j++){
+                if(arr[j] > arr[j+1]){
+                    var temporary = arr[j];
+                    arr[j] = arr[j+1];
+                    arr[j+1] = temporary;
+                }
+            }
+        }
+    },
+    /**
+    *快速排序
+    *@param:arr(Array)
+    */
+    quickSort:function(arr) {
+
+        if(arr.length <= 1){return arr;}
+        let pivotIdx = Math.floor(arr.length / 2);
+        let pivot = arr.splice(pivotIdx,1)[0];
+
+        let [left,right] = [[],[]]
+
+        for(let i = 0;i < arr.length;i++){
+            if(arr[i] < pivot){
+                left.push(arr[i]);
+            }else{
+                right.push(arr[i]);
+            }
+        }
+        return this.quickSort(left).concat([pivot],this.quickSort(right));
+    },
+    /**
+    *插入排序
+    *@param:arr(Array)
+    */
+    insertSort:(arr) => {
+        let j,step,key;
+        for(let i = 0;i < arr.length;i++){
+            step = j = i;
+            key = arr[j];
+            while(--j > -1){
+                if(arr[j] > key){
+                    arr[j+1] = arr[j];
+                }else{
+                    break;
+                }
+            }
+            arr[j+1] = key;
+        }
+        return arr;
+    },
+    /**
+    *二分查找
+    *@param:data(Array)
+    *@param:item(Number)
+    */
+    binarySearch:(data,item) => {
+        let len = data.length - 1;
+        let bes = 0;
+        while(bes <= len){
+            let m = Math.floor((len + bes) / 2);
+            if(data[m] == item){
+                return m;
+            }
+            if(item > data[m]){
+                bes = m + 1;
+            }else{
+                len = m - 1;
+            }
+        }
+        return false;
+    },
+    /**
+    *对象或数组类型深拷贝
+    *@param:arg(Array or Object)
+    *Array.isArray(target):只有IE9以上标准模式下的浏览器支持。
+    */
+    clone:(arg) => {
+        let o = (arg.constructor === Array && arg instanceof Array && Object.prototype.toString.call((arg)) == '[object Array]' ) ? [] : {};
+        for(let e in arg){
+            o[e] = arg.typeof === 'object' ? arg.clone() : arg[e];
+        }
+        return o;
+    },
     /**
     *圆弧进度条
-    *@param:canvasParentEle(string:eleID) canvas外层div的ID
-    *@param:canvasSelf(string:eleID) canvas的ID
+    *@param:canvasParentEle(String:eleID) canvas外层div的ID
+    *@param:canvasSelf(String:eleID) canvas的ID
     *@param:isTrueOrFalse(boolean) true为圆弧进度条，false为整园进度条
-    *@param:progrColor(string) 绘制进度圆的颜色值
+    *@param:progrColor(String) 绘制进度圆的颜色值
     *进度条的值设置在canvas的data-progress上，值区间0~100
     */
     drawCricle:(canvasParentEle,canvasSelf,isTrueOrFalse,progrColor)=>{
@@ -103,8 +202,8 @@ const libs={
     },
 
     /**
-    *@param:(promise) promise对象
-    *@param:(string) 'json' 返回json格式
+    *@param:promise(Promise) promise对象
+    *@param:type(String) 'json' 返回json格式
     *返回一个promise对象,可以使用.then来处理response参数
     */
     Fetch:(promise,type)=>{
@@ -125,10 +224,10 @@ const libs={
     /**
     *移动端手势判断
     *根据起点和终点返回方向 1：向上，2：向下，3：向左，4：向右,0：未滑动
-    *@param:(startX) 开始坐标X轴
-    *@param:(startY) 开始坐标Y轴
-    *@param:(endX) 结束坐标X轴
-    *@param:(endY) 结束坐标Y轴
+    *@param:startX(Number) 开始坐标X轴
+    *@param:startY(Number) 开始坐标Y轴
+    *@param:endX(Number) 结束坐标X轴
+    *@param:endY(Number) 结束坐标Y轴
     */
     GetSlideDirection:(startX,startY, endX, endY)=>{
 
@@ -159,7 +258,7 @@ const libs={
     *@param:strDate(String) 'max:最大时间 min:最小时间 cur:当前时间' 默认当前时间
     *@param:sizeDate(Number) '最大、小年数值' 默认为0
     */
-    getFormDate:(str = 'cur',size = 0)=>{
+    getFormDate:(strDate = 'cur',sizeDate = 0)=>{
         let date = new Date();
         let [splice1,splice2] = ["-",":"];
 
@@ -171,14 +270,14 @@ const libs={
         let seconds = date.getSeconds();
 
         let cur = [year , month , day];
-        let max = [(year + size) , month , day];
-        let min = [(year - size) , month , day];
+        let max = [(year + sizeDate) , month , day];
+        let min = [(year - sizeDate) , month , day];
 
-        if(str == 'cur'){
+        if(strDate == 'cur'){
             return cur;
-        }else if(str == 'max'){
+        }else if(strDate == 'max'){
             return max;
-        }else if(str == 'min'){
+        }else if(strDate == 'min'){
             return min;
         }else{
             return year + splice1 + month + splice1 + day + " " + hours + splice2 + minutes + splice2 + seconds;
@@ -186,8 +285,8 @@ const libs={
     },
     /**
     *根据传入的年和月份返回当月天数
-    *@param:year(number)
-    *@param:month(number)
+    *@param:year(Number)
+    *@param:month(Number)
     */
     getDaysInMonth:(year,month) => {
         //parseInt(number,type)这个函数后面如果不跟第2个参数来表示进制的话，默认是10进制。
@@ -209,7 +308,21 @@ const libs={
             maxProfit = Math.max(maxProfit,potentailProfit);
         }
         return maxProfit;
+    },
+    /**
+    *随机生成指定n位数的字符串
+    *@param:n(number)
+    */
+    randomString:(n) => {
+        let str = 'abcdefghijklmnopqrstuvwxyz9876543210';
+        let tmp = '';
+        let len = str.length;
+        for(let i = 0; i < n;i++){
+            tmp += str.charAt(Math.floor(Math.random()*len));
+        }
+        return tmp;
     }
 }
 
 module.exports = libs;
+// export default libs;

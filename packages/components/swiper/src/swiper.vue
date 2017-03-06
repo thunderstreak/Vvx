@@ -61,15 +61,6 @@ export default {
         this.silderBox = this.$refs.silderboxImg;
         let silderItem = this.$refs.silderboxItem;
         this.autoPlay();
-        /*if(this.show == 'none'){
-            silderItem.style='display:none;';
-        }else if(this.show == 'left'){
-            silderItem.style='text-align:left;';
-        }else if(this.show == 'right'){
-            silderItem.style='text-align:right;';
-        }else{
-            silderItem.style='text-align:center;';
-        }*/
     },
     methods:{
         touchstart(e){
