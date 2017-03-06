@@ -35,6 +35,8 @@
 </template>
 
 <script>
+import tool from '../javascripts/tool.js';
+console.log(tool);
 export default {
     name: 'hello',
     data () {
@@ -61,9 +63,13 @@ Dep.prototype.notify = function() {
         sub.update();
     })
 }
-let dep = new Dep();
-pub.publish();
 
+// let dep = new Dep();
+// pub.publish();
+
+let a = [2,5,6,78,3,5,7,36,5432,12];
+let r = tool.binarySearch(a,3);
+console.log(r);
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
