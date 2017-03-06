@@ -29,7 +29,6 @@ export default {
 
     },
     mounted(){
-        console.log();
         this.markWidth = this.$tool.getUnit(this.$refs.slider.querySelector('.slider-right'),'width');
     },
     methods:{
@@ -86,7 +85,7 @@ html{background: #f4f4f4;}
 .slider{
     font-size: 0.5rem;
     >li{
-        margin: 0.25rem 0rem;
+        margin: 0.25rem 0;
         height: 1.65rem;
         line-height: 1.65rem;
         font-size: 0.35rem;
@@ -96,14 +95,15 @@ html{background: #f4f4f4;}
     }
 }
 .slider-left{
-    // border:1px #fff solid;
     transition: .25s ease;
     width: 100%;
     background: #fff;
+    float: left;
     position: absolute;
     left: 0;
     top: 0;
     z-index: 2;
+    overflow: hidden;
 }
 .slider-right{
     position: absolute;
@@ -112,21 +112,22 @@ html{background: #f4f4f4;}
     z-index: 1;
     width: 4rem;
     text-align: center;
-    display: box;
-	display: -webkit-box;
-	display: flex;
-	display: -webkit-flex;
-    justify-content: space-between;
-	-webkit-justify-content: space-between;
+    overflow: hidden;
+    // display: box;
+	// display: -webkit-box;
+	// display: flex;
+	// display: -webkit-flex;
+    // justify-content: space-between;
+	// -webkit-justify-content: space-between;
 }
 .mark{
     background: #ccc;
     width: 60%;
-    // float: left;
+    float: left;
 }
 .delete{
     background: red;
     width: 40%;
-    // float: right;
+    float: right;
 }
 </style>
