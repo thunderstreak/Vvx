@@ -26,10 +26,12 @@ const libs={
         }
         return newArray;
     },
+
     /**
     *冒泡排序
     *@param:arr(Array)
     */
+
     dobbleSort:(arr) => {
         for(let i = 0;i < arr.length-1;i++){
             for(let j = 0;j < arr.length-i-1;j++){
@@ -41,10 +43,12 @@ const libs={
             }
         }
     },
+
     /**
     *快速排序
     *@param:arr(Array)
     */
+
     quickSort:function(arr) {
 
         if(arr.length <= 1){return arr;}
@@ -62,10 +66,12 @@ const libs={
         }
         return this.quickSort(left).concat([pivot],this.quickSort(right));
     },
+
     /**
     *插入排序
     *@param:arr(Array)
     */
+
     insertSort:(arr) => {
         let j,step,key;
         for(let i = 0;i < arr.length;i++){
@@ -82,11 +88,13 @@ const libs={
         }
         return arr;
     },
+
     /**
     *二分查找
     *@param:data(Array)
     *@param:item(Number)
     */
+
     binarySearch:(data,item) => {
         let len = data.length - 1;
         let bes = 0;
@@ -103,11 +111,13 @@ const libs={
         }
         return false;
     },
+
     /**
     *对象或数组类型深拷贝
     *@param:arg(Array or Object)
     *Array.isArray(target):只有IE9以上标准模式下的浏览器支持。
     */
+
     clone:(arg) => {
         let o = (arg.constructor === Array && arg instanceof Array && Object.prototype.toString.call((arg)) == '[object Array]' ) ? [] : {};
         for(let e in arg){
@@ -115,6 +125,7 @@ const libs={
         }
         return o;
     },
+
     /**
     *圆弧进度条
     *@param:canvasParentEle(String:eleID) canvas外层div的ID
@@ -123,6 +134,7 @@ const libs={
     *@param:progrColor(String) 绘制进度圆的颜色值
     *进度条的值设置在canvas的data-progress上，值区间0~100
     */
+
     drawCricle:(canvasParentEle,canvasSelf,isTrueOrFalse,progrColor)=>{
 
         if(!canvasParentEle && !canvasSelf && !isTrueOrFalse){
@@ -206,6 +218,7 @@ const libs={
     *@param:type(String) 'json' 返回json格式
     *返回一个promise对象,可以使用.then来处理response参数
     */
+
     Fetch:(promise,type)=>{
         if(!promise && typeof promise !== 'object' && JSON.stringify(promise) != '{}') return 'arguments error!';
         return new Promise((resolve,reject) => {
@@ -221,6 +234,7 @@ const libs={
             }).catch((err) => {console.log(err);})
         })
     },
+
     /**
     *移动端手势判断
     *根据起点和终点返回方向 1：向上，2：向下，3：向左，4：向右,0：未滑动
@@ -229,6 +243,7 @@ const libs={
     *@param:endX(Number) 结束坐标X轴
     *@param:endY(Number) 结束坐标Y轴
     */
+
     GetSlideDirection:(startX,startY, endX, endY)=>{
 
         let dy = startY - endY;
@@ -253,11 +268,13 @@ const libs={
         }
         return result;
     },
+
     /**
     *根据传入的值获取当前时间YY-MM-DD or YY-MM-DD h:m:s
     *@param:strDate(String) 'max:最大时间 min:最小时间 cur:当前时间' 默认当前时间
     *@param:sizeDate(Number) '最大、小年数值' 默认为0
     */
+
     getFormDate:(strDate = 'cur',sizeDate = 0)=>{
         let date = new Date();
         let [splice1,splice2] = ["-",":"];
@@ -283,21 +300,25 @@ const libs={
             return year + splice1 + month + splice1 + day + " " + hours + splice2 + minutes + splice2 + seconds;
         }
     },
+
     /**
     *根据传入的年和月份返回当月天数
     *@param:year(Number)
     *@param:month(Number)
     */
+
     getDaysInMonth:(year,month) => {
         //parseInt(number,type)这个函数后面如果不跟第2个参数来表示进制的话，默认是10进制。
         month = parseInt(month,10);
         var temp = new Date(year,month,0);
         return temp.getDate();
     },
+
     /**
     *获取正数组的最大差值
-    *@param:arr(array)
+    *@param:arr(Array)
     */
+
     getMaxProfilt:(arr) => {
         let minPrice = arr[0];
         let maxProfit = 0;
@@ -309,10 +330,12 @@ const libs={
         }
         return maxProfit;
     },
+
     /**
     *随机生成指定n位数的字符串
-    *@param:n(number)
+    *@param:n(Number)
     */
+
     randomString:(n) => {
         let str = 'abcdefghijklmnopqrstuvwxyz9876543210';
         let tmp = '';
@@ -321,6 +344,26 @@ const libs={
             tmp += str.charAt(Math.floor(Math.random()*len));
         }
         return tmp;
+    },
+
+    /**
+    *生成斐波那契数列
+    *@param:n(Number)
+    */
+
+    getFibonacci:(n) => {
+        // fibo[i]=fibo[i-1]+fibo[i-2];
+        let i = 0;
+        let fibarr = [];
+        while(i<n){
+            if(i<=1){
+                fibarr.push(i);
+            }else{
+                fibarr.push(fibarr[i-1]+fibarr[i-2])
+            }
+            i++;
+        }
+        return fibarr;
     }
 }
 
