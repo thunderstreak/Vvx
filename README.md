@@ -38,6 +38,7 @@ Vue.component(Loding.name, Loding)
 - PickerSelect
 - Swiper
 - Switch
+- Slider
 - More in development...
 
 ## Components Details Used
@@ -304,6 +305,29 @@ swiper:[
 // Receive the result
 acceptResultSwitch(val){
     this.onoff = val;
+}
+```
+
+>Slider
+
+``` HTML
+<Slider
+    v-bind:PropList="list"
+    v-on:accept-result="acceptResultSlider"
+></Slider>
+```
+
+``` javascript
+//Similar data(title is required)
+list:[
+    {title:'slider1',data:1},
+    {title:'slider2',data:2},
+    {title:'slider3',data:3},
+    {title:'slider4',data:4},
+]
+// Receive the result
+acceptResultSlider(val){
+    console.log(val);
 }
 ```
 
