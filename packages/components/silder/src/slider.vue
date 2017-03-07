@@ -49,7 +49,7 @@ export default {
                 msg:'测试信息',
                 callback:function(data){
                     console.log(data);
-
+                    self.list[idx].title = data;
                     self.resetStatus();
                 }
             })
