@@ -137,7 +137,7 @@ export default {
 }
 
 .fade-enter-active, .fade-leave-active {
-    transition: .2s
+    transition: .1s
 }
 .fade-enter, .fade-leave-active {
     opacity: 0

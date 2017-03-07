@@ -43,15 +43,38 @@ export default {
     },
     methods:{
         setMark(e,idx){
-            console.log(idx);
+            let self = this;
+            this.$dialog.confirm({
+                tit:'修改备注',
+                msg:'测试信息',
+                callback:function(data){
+                    console.log(data);
+
+                    self.resetStatus();
+                }
+            })
         },
         delMark(e,idx){
-            console.log(idx);
+            let self = this;
+            this.$dialog.alert({
+                tit:'删除',
+                msg:'确定删除？',
+                callback:function(data){
+                    console.log(data);
+                    if(data){
+                        self.list.splice(idx,1);
+                    }
+                    self.resetStatus();
+                }
+            })
         },
-        touchStart(e){
+        resetStatus(){
             if(this.prevEle!=null){
                 this.prevEle.style.transform='translate3d(0, 0, 0)';
             }
+        },
+        touchStart(e){
+            this.resetStatus();
             this.prevEle = e.target;
             let etouch = e.changedTouches[0];
             [this.startX,this.startY] = [etouch.pageX,etouch.pageY];
@@ -122,6 +145,7 @@ html{background: #f4f4f4;}
     top: 0;
     z-index: 2;
     overflow: hidden;
+    text-indent: .25rem;
 }
 .slider-right{
     position: absolute;
