@@ -48,8 +48,9 @@ export default {
                 tit:'修改备注',
                 msg:'测试信息',
                 callback:function(data){
-                    console.log(data);
+                    // console.log(data);
                     self.list[idx].title = data;
+                    self.$emit('accept-result',data);
                     self.resetStatus();
                 }
             })
@@ -57,12 +58,13 @@ export default {
         delMark(e,idx){
             let self = this;
             this.$dialog.alert({
-                tit:'删除',
+                tit:'警告',
                 msg:'确定删除？',
                 callback:function(data){
-                    console.log(data);
+                    // console.log(data);
                     if(data){
                         self.list.splice(idx,1);
+                        self.$emit('accept-result',data);
                     }
                     self.resetStatus();
                 }

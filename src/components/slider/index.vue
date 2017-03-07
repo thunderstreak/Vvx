@@ -3,8 +3,9 @@
 
         <Slider
             v-bind:PropList="list"
+            v-on:accept-result="acceptResultSlider"
         ></Slider>
-        
+
     </section>
 </template>
 
@@ -29,7 +30,9 @@ export default {
 
     },
     methods:{
-
+        acceptResultSlider(data){
+            console.log(data);
+        }
     }
 }
 </script>
