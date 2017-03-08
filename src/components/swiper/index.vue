@@ -10,10 +10,10 @@
 
         </Swiper>
 
-        <p class="demo-list">显示圆点位置：left</p>
+        <!-- <p class="demo-list">显示圆点位置：left</p>
         <Swiper v-bind:imgArr="swiper" v-bind:align="'left'"></Swiper>
         <p class="demo-list">显示圆点位置：right</p>
-        <Swiper v-bind:imgArr="swiper" v-bind:align="'right'"></Swiper>
+        <Swiper v-bind:imgArr="swiper" v-bind:align="'right'"></Swiper> -->
         <br>
     </div>
 </template>
@@ -26,8 +26,8 @@ export default {
             msg:'swiper',
             swiper:[
                 {src:"https://static.vux.li/demo/1.jpg",alt:"top_banner1",url:"https://static.vux.li/demo/1.jpg"},
-                {src:"https://static.vux.li/demo/2.jpg",alt:"top_banner2",url:"https://static.vux.li/demo/1.jpg"},
-                {src:"https://static.vux.li/demo/3.jpg",alt:"top_banner3",url:"https://static.vux.li/demo/1.jpg"},
+                {src:"https://static.vux.li/demo/2.jpg",alt:"top_banner2",url:"https://static.vux.li/demo/2.jpg"},
+                {src:"https://static.vux.li/demo/3.jpg",alt:"top_banner3",url:"https://static.vux.li/demo/3.jpg"},
             ]
         }
     },

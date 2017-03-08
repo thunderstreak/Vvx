@@ -6,14 +6,22 @@
         v-on:touchend.stop.prevent="touchend($event)">
 
             <slot>
-                <a v-bind:href="item.url" v-for="(item,idx) in imgs"  v-bind:data-item="idx">
+                <!-- <a v-bind:data-item="0">
+                    <img v-bind:src="imgs[imgs.length-1].src">
+                </a> -->
+
+                <a v-bind:href="item.url" v-for="(item,idx) in imgs"  v-bind:data-item="idx+1">
                     <img v-bind:src="item.src" v-bind:alt="item.alt">
                 </a>
+
+                <!-- <a v-bind:data-item="imgs.length+1">
+                    <img v-bind:src="imgs[0].src">
+                </a> -->
             </slot>
 
         </div>
         <ul class="silderbox-item" ref="silderboxItem" v-bind="{'style' : 'text-align:'+ align}">
-            <li v-for="(i,idx) in imgs.length" v-bind:class="{'curr': idx==imgIndex}"></li>
+            <li v-for="(i,idx) in imgs.length" v-bind:class="{'curr': idx+1==imgIndex}"></li>
         </ul>
     </section>
 </template>
@@ -24,11 +32,12 @@ export default {
     data(){
         return {
             msg             :'silder',
-            imgs            :this.imgArr,
-            imgIndex        :0,//图片下标
+            imgs            :null,
+            imgIndex        :1,//图片下标
             boxWidth        :0,//silderbox-img 的总宽度
             startOffset     :0,//上一个图片的offsetX值
             endOffset       :0,//最后一个图片的offsetX值
+            flag            :false,
         }
     },
     props:{
@@ -49,25 +58,48 @@ export default {
         }
     },
     created(){
+        this.imgs = this.imgArr;
+
+        // let first = this.imgArr[this.imgArr.length-1];
+        // let last = this.imgArr[0];
+        //
+        // this.imgArr.push(last)
+        // this.imgArr.unshift(first);
+
+
         let dpr = document.querySelector('html').dataset.dpr;
         if(dpr){
             this.windowWidth = window.screen.width * dpr;
         }else{
             this.windowWidth = window.screen.width;
         }
-        this.boxWidth = this.imgs.length * this.windowWidth ;
+        this.boxWidth = (this.imgs.length+2) * this.windowWidth ;
     },
     mounted(){
         this.silderBox = this.$refs.silderboxImg;
         let silderItem = this.$refs.silderboxItem;
-        this.autoPlay();
+
+        // 添加第一个和最后一个过渡元素
+        let firstNode = this.silderBox.childNodes[0].cloneNode(true);;
+        let lastNode = this.silderBox.childNodes[this.silderBox.childNodes.length-1].cloneNode(true);;
+        // 设置过渡元素的data值
+        firstNode.dataset.item = this.imgs.length + 1;
+        lastNode.dataset.item = 0;
+
+        this.silderBox.insertBefore(lastNode,this.silderBox.childNodes[0]);
+        this.silderBox.appendChild(firstNode);
+
+        // this.autoPlay();
+        // console.log(firstNode,lastNode);
+        // console.log("图片下标:"+this.imgIndex)
+        this.silderBox.style.webkitTransform =`translate3d(${-this.windowWidth}px,0,0)`;
     },
     methods:{
         touchstart(e){
             this.startX = e.touches[0].clientX;
             this.startY = e.touches[0].clientY;
             this.silderBox.style.transition="none";
-            clearInterval(this.Swiper)
+            // clearInterval(this.Swiper)
         },
         touchmove(e){
             this.endX = e.touches[0].clientX;
@@ -85,19 +117,32 @@ export default {
             this.endY = e.changedTouches[0].clientY;
             this.imgIndex = Number(e.target.dataset.item);//第几张图片的下标
 
+
+            if(this.imgIndex == 0){
+                this.imgIndex = 1;
+                this.silderBox.style.webkitTransform =`translate3d(${-((this.imgIndex)*this.windowWidth)}px,0,0)`;
+                return;
+            }else if(this.imgIndex == this.imgs.length+1){
+                this.imgIndex = this.imgs.length;
+                this.silderBox.style.webkitTransform =`translate3d(${-((this.imgIndex)*this.windowWidth)}px,0,0)`;
+                return;
+            }
+
             // let str = this.$refs.silderboxImg.style.transform;
             // let curidx = Math.abs(str.substring(str.indexOf('(')+1,str.length-1).split(',')[0].replace('px',''));
-            // this.imgIndex = Math.round(curidx / this.windowWidth);
-            // console.log(curidx,this.imgIndex);
+            // let imgIndex = Math.round(curidx / this.windowWidth);
+            // console.log(curidx,imgIndex);
 
             this.$refs.silderboxImg.style.transition=".5s";
             this.endOffset = Math.abs(this.startX-this.endX);
-            this.autoPlay();
+            // this.autoPlay();
 
+            // 如果滑动到一半时转变成向上或向下的方向时
             if(this.direction == 1 || this.direction == 2){
                 this.silderBox.style.webkitTransform =`translate3d(${-((this.imgIndex)*this.windowWidth)}px,0,0)`;
                 return;
             }
+
             // 如果是只是点击则不切换图片
             if(this.endOffset <= 50){
                 this.silderBox.style.webkitTransform =`translate3d(${-((this.imgIndex)*this.windowWidth)}px,0,0)`;
@@ -105,10 +150,10 @@ export default {
             }
 
             if(this.direction == 3){//向右
-                if(this.imgIndex == this.imgs.length-1){
+                /*if(this.imgIndex == this.imgs.length-1){
                     this.silderBox.style.webkitTransform =`translate3d(${-((this.imgIndex)*this.windowWidth)}px,0,0)`;
                     return;
-                }
+                }*/
 
                 this.silderBox.style.webkitTransform =`translate3d(${-((this.imgIndex+1)*this.windowWidth)}px,0,0)`;
                 this.imgIndex+=1;
@@ -116,14 +161,17 @@ export default {
                 let res;
                 this.imgIndex -= 1;
 
-                if(this.imgIndex <= 0){
+                /*if(this.imgIndex <= 0){
                     this.imgIndex = 0;
                     res = 0;
                 }else{
                     res = (this.imgIndex+1)*this.windowWidth-this.windowWidth;
-                }
+                }*/
+                res = (this.imgIndex+1)*this.windowWidth-this.windowWidth;
                 this.silderBox.style.webkitTransform =`translate3d(${-res}px,0,0)`;
             }
+
+            this.isLoop();
 
         },
         autoPlay(){
@@ -143,7 +191,22 @@ export default {
                 }, this.auto);
             }
         },
-
+        isLoop(){
+            if(this.imgIndex < 1){
+                this.imgIndex = this.imgs.length;
+                this.silderBox.addEventListener("transitionend",()=>{
+                    this.silderBox.style.transition="none";
+                    this.silderBox.style.webkitTransform =`translate3d(${-this.imgIndex * this.windowWidth}px,0,0)`;
+                })
+            }else if(this.imgIndex > this.imgs.length){
+                this.imgIndex = 1;
+                this.silderBox.addEventListener("transitionend",()=>{
+                    this.silderBox.style.transition="none";
+                    this.silderBox.style.webkitTransform =`translate3d(${-this.imgIndex * this.windowWidth}px,0,0)`;
+                })
+            }
+            this.flag = true;
+        }
     }
 }
 </script>
