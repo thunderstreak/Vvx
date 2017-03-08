@@ -74,7 +74,7 @@ export default {
         this.silderBox.insertBefore(lastNode,this.silderBox.childNodes[0]);
         this.silderBox.appendChild(firstNode);
 
-        this.autoPlay();
+        // this.autoPlay();
         // console.log(firstNode,lastNode);
         // console.log("图片下标:"+this.imgIndex)
         this.silderBox.style.webkitTransform =`translate3d(${-this.windowWidth}px,0,0)`;
@@ -84,7 +84,7 @@ export default {
             this.startX = e.touches[0].clientX;
             this.startY = e.touches[0].clientY;
             this.silderBox.style.transition="none";
-            clearInterval(this.Swiper)
+            // clearInterval(this.Swiper)
         },
         touchmove(e){
             this.endX = e.touches[0].clientX;
@@ -120,7 +120,7 @@ export default {
 
             this.$refs.silderboxImg.style.transition=".5s";
             this.endOffset = Math.abs(this.startX-this.endX);
-            this.autoPlay();
+            // this.autoPlay();
 
             // 如果滑动到一半时转变成向上或向下的方向时
             if(this.direction == 1 || this.direction == 2){
@@ -164,30 +164,14 @@ export default {
 
                 this.Swiper = setInterval(()=>{
                     this.silderBox.style.transition=".5s";
-                    // if(this.imgIndex == this.imgs.length-1){
-                    //
-                    //     this.silderBox.style.webkitTransform =`translate3d(${0}px,0,0)`;
-                    //     this.imgIndex=0;
-                    //
-                    // }else{
-                    //     this.silderBox.style.webkitTransform =`translate3d(${-((this.imgIndex+1)*this.windowWidth)}px,0,0)`;
-                    //     this.imgIndex+=1;
-                    // }
-                    if(this.imgIndex < 1){
-                        this.imgIndex = this.imgs.length;
-                        this.silderBox.addEventListener("transitionend",()=>{
-                            this.silderBox.style.transition="none";
-                            this.silderBox.style.webkitTransform =`translate3d(${-this.imgIndex * this.windowWidth}px,0,0)`;
-                        })
-                    }else if(this.imgIndex > this.imgs.length){
-                        this.imgIndex = 1;
-                        this.silderBox.addEventListener("transitionend",()=>{
-                            this.silderBox.style.transition="none";
-                            this.silderBox.style.webkitTransform =`translate3d(${-this.imgIndex * this.windowWidth}px,0,0)`;
-                        })
+                    if(this.imgIndex == this.imgs.length-1){
+
+                        this.silderBox.style.webkitTransform =`translate3d(${0}px,0,0)`;
+                        this.imgIndex=0;
+
                     }else{
                         this.silderBox.style.webkitTransform =`translate3d(${-((this.imgIndex+1)*this.windowWidth)}px,0,0)`;
-                            this.imgIndex+=1;
+                        this.imgIndex+=1;
                     }
                 }, this.auto);
             }
