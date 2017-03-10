@@ -45,7 +45,6 @@ const install = function(Vue,opts = {}) {
 	// injected component
 	Vue.mixin({
 		beforeCreate: () => {
-			// console.log(this);
 			// this.$tool = tool;
 		}
 	})

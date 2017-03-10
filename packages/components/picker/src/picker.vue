@@ -38,8 +38,7 @@ export default{
 		}
 	},
 	created(){
-		// this.arr = this.AreaData;
-		// console.log(this.AreaData)
+
 	},
 	mounted(){
 		this.pickerEle = this.$refs.picker;
@@ -56,7 +55,6 @@ export default{
 			this.time = new Date().getTime();
             this.currentTarget = e.target.parentNode;
             this.lisize = this.currentTarget.querySelectorAll('li').length;
-            // this.currentTarget.style.transition='none';
 		},
 		touchmove(e){
 
@@ -80,13 +78,12 @@ export default{
             if(offset < -this.liHeight * (this.lisize - 5)){
                 offset = - this.liHeight * (this.lisize - 5);
             }
-            // this.currentTarget.style.transition='.5s';
+
             this.currentTarget.style.transform='translateY('+ offset +'px)';
             this.currOffset = offset;
             // 将下标推入index对象
             this.currindex = Math.abs(Math.round(offset / this.liHeight));
-            // console.log(idx)
-            // console.log(offset)
+			// 通知父组件返回结果
             this.$emit('accept-result',this.currindex);
 		}
 	},
