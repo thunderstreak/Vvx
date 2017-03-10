@@ -48,7 +48,6 @@ export default {
                 tit:'修改备注',
                 msg:'测试信息',
                 callback:function(data){
-                    // console.log(data);
                     self.list[idx].title = data;
                     self.$emit('accept-result',data);
                     self.resetStatus();
@@ -61,7 +60,6 @@ export default {
                 tit:'警告',
                 msg:'确定删除？',
                 callback:function(data){
-                    // console.log(data);
                     if(data){
                         self.list.splice(idx,1);
                         self.$emit('accept-result',data);

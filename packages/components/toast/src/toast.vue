@@ -53,9 +53,6 @@ export default {
 
 }
 .toast-center{
-
-    /*width:auto;
-    height: auto;*/
     font-size: .5rem;
     padding: .2rem .25rem;
     border-radius: .1rem;
