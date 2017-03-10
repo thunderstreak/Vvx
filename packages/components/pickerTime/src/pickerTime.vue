@@ -32,7 +32,6 @@
 </template>
 
 <script>
-import pickers from '../../picker/index.js';
 /**
 *根据传入的值获取当前时间YY-MM-DD or YY-MM-DD h:m:s
 *@param:strDate(String) 'max:最大时间 min:最小时间 cur:当前时间' 默认当前时间
@@ -143,9 +142,6 @@ export default {
 
 
 
-    },
-    components:{
-        Picker:pickers
     },
     mounted(){
 
