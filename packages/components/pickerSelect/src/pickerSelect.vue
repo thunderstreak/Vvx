@@ -25,8 +25,6 @@
 </template>
 
 <script>
-import pickers from '../../picker/index.js';
-
 export default {
     name:'PickerSelect',
     data(){
@@ -51,16 +49,11 @@ export default {
             }
         }
     },
-    components:{
-        Picker:pickers
-    },
     created(){
-
             this.select   = this.PropData;
             for(let i = 0;i < this.PropData.length;i++){
                 if(this.PropData[i] == this.PropSelect[0]){
-                    this.selectedIndex = i;//选中省的下标
-                    // this.setProvinceCurrIndex = i;//设置当前省下标
+                    this.selectedIndex = i;//选的下标
                     break;
                 }
             }
