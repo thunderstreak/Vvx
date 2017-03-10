@@ -332,5 +332,5 @@ const libs={
     }
 }
 
-module.exports = libs;
-// export default libs;
+// module.exports = libs;
+export default libs;
