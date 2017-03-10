@@ -101,33 +101,32 @@ export default {
     },
     created(){
         // 如果没有设置省市区使用默认
-
-            this.province   = PropData.map((v,k)=>{return v.n});
-            for(let i = 0;i < PropData.length;i++){
-                if(PropData[i].n == this.setAddress[0]){
-                    this.selectedProvinceIndex = i;//选中省的下标
-                    this.setProvinceCurrIndex = i;//设置当前省下标
-                    break;
-                }
+        this.province   = PropData.map((v,k)=>{return v.n});
+        for(let i = 0;i < PropData.length;i++){
+            if(PropData[i].n == this.setAddress[0]){
+                this.selectedProvinceIndex = i;//选中省的下标
+                this.setProvinceCurrIndex = i;//设置当前省下标
+                break;
             }
-            let AreaDataCitys = PropData[this.selectedProvinceIndex].c;
-            for(let i = 0;i < AreaDataCitys.length;i++){
-                if(AreaDataCitys[i].n == this.setAddress[1]){
-                    this.selectedCityIndex = i;//选中市的下标
-                    this.setCityCurrIndex = i;//设置当前市下标
-                    this.city       = AreaDataCitys.map((v,k)=>{return v.n});
-                    break;
-                }
+        }
+        let AreaDataCitys = PropData[this.selectedProvinceIndex].c;
+        for(let i = 0;i < AreaDataCitys.length;i++){
+            if(AreaDataCitys[i].n == this.setAddress[1]){
+                this.selectedCityIndex = i;//选中市的下标
+                this.setCityCurrIndex = i;//设置当前市下标
+                this.city       = AreaDataCitys.map((v,k)=>{return v.n});
+                break;
             }
-            let AreaDataAreas = PropData[this.selectedProvinceIndex].c[this.selectedCityIndex].c;
-            for(let i = 0;i < AreaDataAreas.length;i++){
-                if(AreaDataAreas[i].n == this.setAddress[2]){
-                    this.selectedAreaIndex = i;//选中区的下标
-                    this.setAreaCurrIndex = i;//设置当前区下标
-                    this.area       = AreaDataAreas.map((v,k)=>{return v.n});
-                    break;
-                }
+        }
+        let AreaDataAreas = PropData[this.selectedProvinceIndex].c[this.selectedCityIndex].c;
+        for(let i = 0;i < AreaDataAreas.length;i++){
+            if(AreaDataAreas[i].n == this.setAddress[2]){
+                this.selectedAreaIndex = i;//选中区的下标
+                this.setAreaCurrIndex = i;//设置当前区下标
+                this.area       = AreaDataAreas.map((v,k)=>{return v.n});
+                break;
             }
+        }
 
     },
     mounted(){
