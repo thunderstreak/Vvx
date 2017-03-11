@@ -365,6 +365,15 @@ const libs={
         }
         return fibarr;
     }
+
+    /**
+    *获取指定元素的单位
+    *@param:ele(Object) 目标元素对象
+    *@param:attr(String) 需要获取的单位名:width,height
+    */
+    getUnit:(ele,attr) => {
+        return Number((window.getComputedStyle(ele)[attr]).replace('px',''));
+    }
 }
 
 // module.exports = libs;
