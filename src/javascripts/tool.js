@@ -364,7 +364,7 @@ const libs={
             i++;
         }
         return fibarr;
-    }
+    },
 
     /**
     *获取指定元素的单位
