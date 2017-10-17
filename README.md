@@ -1,7 +1,7 @@
 # Vvx
 
 > Vvx UI 一套基于Vue2.0开发的一套简单常用的移动端UI组件。
-> [Demo](https://yb707893334.github.io/vvxdemo/#/)
+> [Demo](https://thunderstreak.github.io/vvxdemo/#/)
 
 ## Install
 
