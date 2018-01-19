@@ -1,18 +1,18 @@
 <template lang="html">
     <div class="demo">
 
-        <!-- <p class="demo-list" v-on:click="showPickerAddress1">显示默认地址：['北京', '北京', '东城区'] <span>{{resAddress1}}</span></p> -->
+        <p class="demo-list" v-on:click="showPickerAddress1">显示默认地址：['北京', '北京', '东城区'] <span>{{resAddress1}}</span></p>
 
         <p class="demo-list" v-on:click="showPickerAddress2">显示设置地址：['湖南省', '长沙市', '岳麓区'] <span>{{resAddress2}}</span></p>
 
-        <!-- <p class="demo-list" v-on:click="showPickerAddress3">显示省市：['北京', '北京'] <span>{{resAddress3}}</span></p> -->
+        <p class="demo-list" v-on:click="showPickerAddress3">显示省市：['北京', '北京'] <span>{{resAddress3}}</span></p>
 
         <!-- 显示默认地址： -->
-        <!-- <pickerAddress
+        <pickerAddress
             v-bind:Metadata="Metadata"
             v-on:accept-result="acceptResultAddress1"
             ref="pickerAddress1"
-        ></pickerAddress> -->
+        ></pickerAddress>
 
         <!-- 显示设置地址： -->
         <pickerAddress
@@ -23,12 +23,12 @@
         ></pickerAddress>
 
         <!-- 显示省市： -->
-        <!-- <pickerAddress
+        <pickerAddress
             v-bind:Metadata="Metadata"
             v-bind:setProcity="true"
             v-on:accept-result="acceptResultAddress3"
             ref="pickerAddress3"
-        ></pickerAddress> -->
+        ></pickerAddress>
 
 
 
@@ -57,12 +57,12 @@ export default {
     },
     methods:{
         // 默认地址选择
-        // showPickerAddress1(){
-        //     this.$refs.pickerAddress1.open();
-        // },
-        // acceptResultAddress1(val){
-        //     this.resAddress1 = val.toString();
-        // },
+        showPickerAddress1(){
+            this.$refs.pickerAddress1.open();
+        },
+        acceptResultAddress1(val){
+            this.resAddress1 = val.toString();
+        },
 
         // 设置地址选择
         showPickerAddress2(){
@@ -73,12 +73,12 @@ export default {
         },
 
         // 设置省市地址选择
-        // showPickerAddress3(){
-        //     this.$refs.pickerAddress3.open();
-        // },
-        // acceptResultAddress3(val){
-        //     this.resAddress3 = val.toString();
-        // },
+        showPickerAddress3(){
+            this.$refs.pickerAddress3.open();
+        },
+        acceptResultAddress3(val){
+            this.resAddress3 = val.toString();
+        },
 
 
     }
