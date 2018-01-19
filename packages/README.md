@@ -40,4 +40,4 @@ Vue.component(Loding.name, Loding)
 - More in development...
 
 ## GitHub
-- [Home Page](https://github.com/yb707893334/Vvx)
+- [Home Page](https://github.com/thunderstreak/Vvx)

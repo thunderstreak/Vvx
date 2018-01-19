@@ -47,7 +47,9 @@ export default{
 		// 设置初始选中的偏移值
 		this.currindex = this.setIndex;
 		let currY = this.currOffset = -(this.currindex)*this.liHeight;
-		this.pickerEle.style.transform='translateY('+ currY +'px)';
+		console.log(this.setIndex);
+		// this.pickerEle.style.transform='translateY('+ currY +'px)';
+		this.pickerEle.style.webkitTransform = `translate3d(0,${currY}px,0)`;
 	},
 	methods:{
 		touchstart(e){
@@ -60,7 +62,8 @@ export default{
 
 			this.endY = e.touches[0].clientY;
             let offsetY = this.currOffset + this.endY - this.startY;
-            this.currentTarget.style.transform='translateY('+ offsetY +'px)';
+            // this.currentTarget.style.transform='translateY('+ offsetY +'px)';
+            this.currentTarget.style.webkitTransform = `translate3d(0,${offsetY}px,0)`;
 		},
 		touchend(e){
 			this.endY = e.changedTouches[0].clientY;
@@ -79,7 +82,8 @@ export default{
                 offset = - this.liHeight * (this.lisize - 5);
             }
 
-            this.currentTarget.style.transform='translateY('+ offset +'px)';
+            // this.currentTarget.style.transform='translateY('+ offset +'px)';
+            this.currentTarget.style.webkitTransform = `translate3d(0,${offset}px,0)`;
             this.currOffset = offset;
             // 将下标推入index对象
             this.currindex = Math.abs(Math.round(offset / this.liHeight));
@@ -89,16 +93,17 @@ export default{
 	},
 	watch:{
 		PropData(n,o){
-			let str = this.pickerEle.style.transform;
+			let str = this.pickerEle.style.webkitTransform;
 			if(str){
 				let left 	= str.indexOf('(');
 				let right 	= str.indexOf(')');
-				let number 	= Number(str.substring(left+1,right).replace('px',''));
+				let number 	= Number(str.substring(left+1,right).replace(/px/ig,'').split(',')[1]);
 				if(Math.abs(number) / this.liHeight >= n.length){
 					this.currOffset = 0;
 					this.currindex = 0;
 					this.$emit('accept-result',this.currindex);
-					this.pickerEle.style.transform='translateY('+ 0 +'px)';
+					// this.pickerEle.style.transform='translateY('+ 0 +'px)';
+					this.pickerEle.style.webkitTransform=`translate3d(0,0,0)`;
 				}
 			}
 		}

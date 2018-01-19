@@ -152,7 +152,7 @@ export default {
         },
         acceptResultProvince(v){
             this.selectedProvinceIndex = v;
-            // this.city        = AreaData[v].c;
+            // this.city        = PropData[v].c;
             this.area        = PropData[v].c['0'].c.map((v,k)=>{
                 return v.n
             });
@@ -170,6 +170,7 @@ export default {
             this.city = PropData[n].c.map((v,k)=>{
                 return v.n;
             });
+            this.setCityCurrIndex = 0;
         },
         selectedCityIndex(n,o){
             this.area = PropData[this.selectedProvinceIndex].c[n].c.map((v,k)=>{
