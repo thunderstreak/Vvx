@@ -47,7 +47,7 @@ export default{
 		// 设置初始选中的偏移值
 		this.currindex = this.setIndex;
 		let currY = this.currOffset = -(this.currindex)*this.liHeight;
-		console.log(this.setIndex);
+
 		// this.pickerEle.style.transform='translateY('+ currY +'px)';
 		this.pickerEle.style.webkitTransform = `translate3d(0,${currY}px,0)`;
 	},
@@ -150,7 +150,7 @@ export default{
     }
     .picker-ul{
     	text-align: center;
-    	transition: all .3s ease-out;
+    	transition: all .25s ease-out;
     	>li{
     	    height: 1rem;
     	    line-height: 1rem;

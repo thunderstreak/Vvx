@@ -23,7 +23,7 @@ const components = [
 	Slider
 ];
 
-const version = '1.0.10';
+const version = '1.0.11';
 
 const install = function(Vue,opts = {}) {
 	if (install.installed) return;
