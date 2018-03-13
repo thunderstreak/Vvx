@@ -141,7 +141,7 @@ export default {
             let address = [
                 PropData[this.selectedProvinceIndex].n,
                 PropData[this.selectedProvinceIndex].c[this.selectedCityIndex].n,
-                PropData[this.selectedProvinceIndex].c[this.selectedCityIndex].c[this.selectedAreaIndex].n
+                PropData[this.selectedProvinceIndex].c[this.selectedCityIndex].c.length != 0 ? PropData[this.selectedProvinceIndex].c[this.selectedCityIndex].c[this.selectedAreaIndex].n : ''
             ]
             let procity = [
                 PropData[this.selectedProvinceIndex].n,
