@@ -23,9 +23,9 @@ const components = [
 	Slider
 ];
 
-const version = '1.0.12';
+const version = '1.0.13';
 
-const install = function(Vue,opts = {}) {
+const install = function(Vue, opts = {}) {
 	if (install.installed) return;
 
 	components.map(component => {
@@ -33,36 +33,39 @@ const install = function(Vue,opts = {}) {
  	});
 
 	// add global method or attribute
-	Vue.myGlobalMethod = () => {
+	Vue.VvxGlobalMethod = () => {
 		console.log('method or attribute')
-	}
+	};
+
 	// add global assets directive
-	Vue.directive('my-directive', {
+	Vue.directive('Vvx-directive', {
 		bind (el, binding, vnode, oldVnode) {
 			// smoe...
 		}
-	})
+	});
+
 	// injected component
 	Vue.mixin({
 		beforeCreate: () => {
 			// this.$tool = tool;
 		}
-	})
+	});
+
 	// add prototype method
-	Vue.prototype.$myMethod = (options) => {
+	Vue.prototype.$VvxMethod = (options) => {
 		// logic...
-	}
+	};
 
 	Vue.$tool 	= Vue.prototype.$tool 	= tool;
 	Vue.$dialog = Vue.prototype.$dialog = Dialog;
 	Vue.$loding = Vue.prototype.$loding = Loding;
 	Vue.$toast 	= Vue.prototype.$toast 	= Toast;
-}
+};
 
 // auto install
 if (typeof window !== 'undefined' && window.Vue) {
 	install(window.Vue);
-};
+}
 
 // module.exports = {
 export {

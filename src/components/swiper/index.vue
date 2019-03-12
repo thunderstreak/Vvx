@@ -25,9 +25,9 @@ export default {
         return{
             msg:'swiper',
             swiper:[
-                {src:"https://static.vux.li/demo/1.jpg",alt:"top_banner1",url:"https://static.vux.li/demo/1.jpg"},
-                {src:"https://static.vux.li/demo/2.jpg",alt:"top_banner2",url:"https://static.vux.li/demo/2.jpg"},
-                {src:"https://static.vux.li/demo/3.jpg",alt:"top_banner3",url:"https://static.vux.li/demo/3.jpg"},
+                {src:"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2624181337,2994538201&fm=27&gp=0.jpg",alt:"top_banner1",url:"https://static.vux.li/demo/1.jpg"},
+                {src:"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2624181337,2994538201&fm=27&gp=0.jpg",alt:"top_banner2",url:"https://static.vux.li/demo/2.jpg"},
+                {src:"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2624181337,2994538201&fm=27&gp=0.jpg",alt:"top_banner3",url:"https://static.vux.li/demo/3.jpg"},
             ]
         }
     },

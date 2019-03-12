@@ -3,9 +3,9 @@
         <ul class="slider" ref='slider'>
             <li v-for="(item,$index) in list">
                 <div class="slider-left"
-                v-on:touchstart.stop.prevent='touchStart($event)'
-                v-on:touchmove.stop.prevent='touchMove($event)'
-                v-on:touchend.stop.prevent='touchEnd($event)'>
+                    v-on:touchstart.stop.prevent='touchStart($event)'
+                    v-on:touchmove.stop.prevent='touchMove($event)'
+                    v-on:touchend.stop.prevent='touchEnd($event)'>
                     {{item.title}}
                 </div>
                 <div class="slider-right" >
@@ -35,41 +35,38 @@ export default {
         }
     },
     created(){
-        let temporary = this.PropList;
-        this.list = temporary;
+        this.list = this.PropList;
     },
     mounted(){
         this.markWidth = this.$tool.getUnit(this.$refs.slider.querySelector('.slider-right'),'width');
     },
     methods:{
         setMark(e,idx){
-            let self = this;
             this.$dialog.confirm({
                 tit:'修改备注',
                 msg:'测试信息',
-                callback:function(data){
-                    self.list[idx].title = data;
-                    self.$emit('accept-result',data);
-                    self.resetStatus();
+                callback: (data) => {
+                    this.list[idx].title = data;
+                    this.$emit('accept-result',data);
+                    this.resetStatus();
                 }
             })
         },
         delMark(e,idx){
-            let self = this;
             this.$dialog.alert({
                 tit:'警告',
                 msg:'确定删除？',
-                callback:function(data){
+                callback: (data) => {
                     if(data){
-                        self.list.splice(idx,1);
-                        self.$emit('accept-result',data);
+                        this.list.splice(idx,1);
+                        this.$emit('accept-result',data);
                     }
-                    self.resetStatus();
+                    this.resetStatus();
                 }
             })
         },
         resetStatus(){
-            if(this.prevEle!=null){
+            if(this.prevEle){
                 this.prevEle.style.transform='translate3d(0, 0, 0)';
             }
         },
@@ -77,27 +74,27 @@ export default {
             this.resetStatus();
             this.prevEle = e.target;
             let etouch = e.changedTouches[0];
-            [this.startX,this.startY] = [etouch.pageX,etouch.pageY];
+            [ this.startX, this.startY ] = [ etouch.pageX, etouch.pageY ];
         },
         touchMove(e){
             let etouch = e.changedTouches[0];
             let endX,endY;
             // 解构赋值
-            [this.endX,endX,this.endY,endY] = [etouch.pageX,etouch.pageX,etouch.pageY,etouch.pageY];
+            [ this.endX, endX, this.endY, endY ] = [ etouch.pageX, etouch.pageX, etouch.pageY, etouch.pageY ];
 
             // 计算手指移动方位
-            this.direction = this.$tool.GetSlideDirection(this.startX,this.startY,endX,endY);
+            this.direction = this.$tool.GetSlideDirection(this.startX, this.startY, endX, endY);
 
             // 计算滑动距离
             this.offsetX = endX - this.startX < -this.markWidth ? -this.markWidth :  endX - this.startX;
 
-            if(this.direction==3){// left
+            if(this.direction === 3){// left
                 if(this.offsetX < -(this.markWidth/2)){
                     e.target.style.transform=`translate3d(${-this.markWidth}px, 0, 0)`;
                 }else{
                     e.target.style.transform=`translate3d(${this.offsetX}px, 0, 0)`;
                 }
-            }else if(this.direction==4){// right
+            }else if(this.direction === 4){// right
                 if(this.offsetX > 0 && this.offsetX < this.markWidth){
                     e.target.style.transform=`translate3d(0, 0, 0)`;
                 }

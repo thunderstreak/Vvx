@@ -1,9 +1,9 @@
 <template lang="html">
     <section class="silderbox">
-        <div class="silderbox-img" ref="silderboxImg" v-bind="{'style' : 'width:'+ boxWidth +'px'}"
-        v-on:touchstart.stop.prevent="touchstart($event)"
-        v-on:touchmove.stop.prevent="touchmove($event)"
-        v-on:touchend.stop.prevent="touchend($event)">
+        <div class="silderbox-img" ref="silderboxImg" v-bind="{'style' : 'width:' + boxWidth + 'px'}"
+            v-on:touchstart.stop.prevent="touchstart($event)"
+            v-on:touchmove.stop.prevent="touchmove($event)"
+            v-on:touchend.stop.prevent="touchend($event)">
 
             <slot>
                 <a v-bind:href="item.url" v-for="(item,idx) in imgs"  v-bind:data-item="idx">
@@ -12,8 +12,8 @@
             </slot>
 
         </div>
-        <ul class="silderbox-item" ref="silderboxItem" v-bind="{'style' : 'text-align:'+ align}">
-            <li v-for="(i,idx) in imgs.length" v-bind:class="{'curr': idx==imgIndex}"></li>
+        <ul class="silderbox-item" ref="silderboxItem" v-bind="{'style' : 'text-align:' + align}">
+            <li v-for="(i,idx) in imgs.length" v-bind:class="{'curr': idx === imgIndex}"></li>
         </ul>
     </section>
 </template>
@@ -73,12 +73,12 @@ export default {
             this.endX = e.touches[0].clientX;
             this.endY = e.touches[0].clientY;
             //根据起点和终点返回方向 1：向上，2：向下，3：向左，4：向右,0：未滑动
-            this.direction = this.$tool.GetSlideDirection(this.startX,this.startY,this.endX,this.endY);
+            this.direction = this.$tool.GetSlideDirection(this.startX, this.startY, this.endX, this.endY);
             this.startOffset =  -(this.startX - this.endX);
 
-            let s = -this.imgIndex*this.windowWidth+e.touches[0].pageX-this.startX;
+            let s = -this.imgIndex * this.windowWidth + e.touches[0].pageX - this.startX;
 
-            this.silderBox.style.webkitTransform =`translate3d(${s}px,0,0)`;
+            this.silderBox.style.webkitTransform = `translate3d(${s}px,0,0)`;
         },
         touchend(e){
             this.endX = e.changedTouches[0].clientX;
@@ -90,29 +90,29 @@ export default {
             // this.imgIndex = Math.round(curidx / this.windowWidth);
             // console.log(curidx,this.imgIndex);
 
-            this.$refs.silderboxImg.style.transition=".5s";
-            this.endOffset = Math.abs(this.startX-this.endX);
+            this.$refs.silderboxImg.style.transition = ".5s";
+            this.endOffset = Math.abs(this.startX - this.endX);
             this.autoPlay();
 
-            if(this.direction == 1 || this.direction == 2){
-                this.silderBox.style.webkitTransform =`translate3d(${-((this.imgIndex)*this.windowWidth)}px,0,0)`;
+            if(this.direction === 1 || this.direction === 2){
+                this.silderBox.style.webkitTransform =`translate3d(${-(this.imgIndex * this.windowWidth)}px, 0, 0)`;
                 return;
             }
             // 如果是只是点击则不切换图片
             if(this.endOffset <= 50){
-                this.silderBox.style.webkitTransform =`translate3d(${-((this.imgIndex)*this.windowWidth)}px,0,0)`;
+                this.silderBox.style.webkitTransform = `translate3d(${-(this.imgIndex * this.windowWidth)}px, 0, 0)`;
                 return;
             }
 
-            if(this.direction == 3){//向右
-                if(this.imgIndex == this.imgs.length-1){
-                    this.silderBox.style.webkitTransform =`translate3d(${-((this.imgIndex)*this.windowWidth)}px,0,0)`;
+            if(this.direction === 3){//向右
+                if(this.imgIndex === this.imgs.length - 1){
+                    this.silderBox.style.webkitTransform = `translate3d(${-(this.imgIndex * this.windowWidth)}px, 0, 0)`;
                     return;
                 }
 
-                this.silderBox.style.webkitTransform =`translate3d(${-((this.imgIndex+1)*this.windowWidth)}px,0,0)`;
-                this.imgIndex+=1;
-            }else if(this.direction == 4){//向左
+                this.silderBox.style.webkitTransform = `translate3d(${-((this.imgIndex + 1) * this.windowWidth)}px, 0, 0)`;
+                this.imgIndex += 1;
+            }else if(this.direction === 4){//向左
                 let res;
                 this.imgIndex -= 1;
 
@@ -120,25 +120,24 @@ export default {
                     this.imgIndex = 0;
                     res = 0;
                 }else{
-                    res = (this.imgIndex+1)*this.windowWidth-this.windowWidth;
+                    res = (this.imgIndex + 1) * this.windowWidth - this.windowWidth;
                 }
-                this.silderBox.style.webkitTransform =`translate3d(${-res}px,0,0)`;
+                this.silderBox.style.webkitTransform = `translate3d(${-res}px,0,0)`;
             }
 
         },
         autoPlay(){
             if(this.auto){
-
                 this.Swiper = setInterval(()=>{
-                    this.silderBox.style.transition=".5s";
-                    if(this.imgIndex == this.imgs.length-1){
+                    this.silderBox.style.transition = ".5s";
+                    if(this.imgIndex === this.imgs.length - 1){
 
-                        this.silderBox.style.webkitTransform =`translate3d(${0}px,0,0)`;
-                        this.imgIndex=0;
+                        this.silderBox.style.webkitTransform = `translate3d(${0}px,0,0)`;
+                        this.imgIndex = 0;
 
                     }else{
-                        this.silderBox.style.webkitTransform =`translate3d(${-((this.imgIndex+1)*this.windowWidth)}px,0,0)`;
-                        this.imgIndex+=1;
+                        this.silderBox.style.webkitTransform = `translate3d(${-((this.imgIndex + 1) * this.windowWidth)}px,0,0)`;
+                        this.imgIndex += 1;
                     }
                 }, this.auto);
             }
@@ -155,8 +154,6 @@ export default {
     position: relative;
     .silderbox-img{
         // height: 4rem;
-        display: box;
-        display: -webkit-box;
         display: flex;
         display: -webkit-flex;
         justify-content: space-between;
@@ -169,6 +166,7 @@ export default {
             img{
                 pointer-events:none;
                 width: 100%;
+                height: 300px;
                 float: left;
             }
         }

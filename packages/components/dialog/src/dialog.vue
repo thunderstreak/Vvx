@@ -1,32 +1,26 @@
 <template lang="html">
     <transition name="fade">
-    <div class="alert" v-if="!isshow">
-
+        <div class="alert" v-if="!isshow">
             <div class="alert-box">
-
-                <div class="" v-if="type == 'alert'">
+                <div class="" v-if="type === 'alert'">
                     <h2 class="alert-tit">{{tit}}</h2>
                     <p class="alert-content">{{msg}}</p>
                 </div>
-
-                <div class="" v-if="type == 'toast'">
+                <div class="" v-if="type === 'toast'">
                     <p class="alert-content">{{msg}}</p>
                 </div>
-
-                <div class="" v-if="type == 'confirm'">
+                <div class="" v-if="type === 'confirm'">
                     <h2 class="alert-tit">{{tit}}</h2>
                     <p class="alert-content">
                         <input v-focus="type" ref='ipt' type="text" v-model='ipt' name="" value="">
                     </p>
                 </div>
-
-                <div class="alert-btn" v-if="type != 'toast'">
+                <div class="alert-btn" v-if="type !== 'toast'">
                     <span class="alert-close" v-on:click='alertClose'>取消</span>
                     <span class="alert-enter" v-on:click='alertEnter'>确定</span>
                 </div>
             </div>
-
-    </div>
+        </div>
     </transition>
 </template>
 
@@ -51,13 +45,13 @@ export default {
     methods:{
         // 关闭按钮
         alertClose(){
-            this.isshow=true;
+            this.isshow = true;
             this.callback(false);
         },
         // 确定按钮
         alertEnter(){
-            this.isshow=true;
-            if(this.type=='confirm'){
+            this.isshow = true;
+            if(this.type === 'confirm'){
                 this.callback(this.ipt);
             }else{
                 this.callback(true);

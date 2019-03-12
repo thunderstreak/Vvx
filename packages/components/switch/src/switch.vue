@@ -44,8 +44,8 @@ export default {
         }
     },
     watch:{
-        isActive(newVal,oldVal){
-            this.$emit('accept-result',newVal);
+        isActive(n){
+            this.$emit('accept-result',n);
         }
     }
 }

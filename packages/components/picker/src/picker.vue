@@ -46,10 +46,8 @@ export default{
 
 		// 设置初始选中的偏移值
 		this.currindex = this.setIndex;
-		let currY = this.currOffset = -(this.currindex)*this.liHeight;
-
-		// this.pickerEle.style.transform='translateY('+ currY +'px)';
-		this.pickerEle.style.webkitTransform = `translate3d(0,${currY}px,0)`;
+		let currY = this.currOffset = -(this.currindex) * this.liHeight;
+		this.pickerEle.style.webkitTransform = `translate3d(0, ${currY}px, 0)`;
 	},
 	methods:{
 		touchstart(e){
@@ -59,11 +57,9 @@ export default{
             this.lisize = this.currentTarget.querySelectorAll('li').length;
 		},
 		touchmove(e){
-
 			this.endY = e.touches[0].clientY;
             let offsetY = this.currOffset + this.endY - this.startY;
-            // this.currentTarget.style.transform='translateY('+ offsetY +'px)';
-            this.currentTarget.style.webkitTransform = `translate3d(0,${offsetY}px,0)`;
+            this.currentTarget.style.webkitTransform = `translate3d(0, ${offsetY}px, 0)`;
 		},
 		touchend(e){
 			this.endY = e.changedTouches[0].clientY;
@@ -82,17 +78,16 @@ export default{
                 offset = - this.liHeight * (this.lisize - 5);
             }
 
-            // this.currentTarget.style.transform='translateY('+ offset +'px)';
-            this.currentTarget.style.webkitTransform = `translate3d(0,${offset}px,0)`;
+            this.currentTarget.style.webkitTransform = `translate3d(0, ${offset}px, 0)`;
             this.currOffset = offset;
             // 将下标推入index对象
             this.currindex = Math.abs(Math.round(offset / this.liHeight));
 			// 通知父组件返回结果
-            this.$emit('accept-result',this.currindex);
+            this.$emit('accept-result', this.currindex);
 		}
 	},
 	watch:{
-		PropData(n,o){
+		PropData(n){
 			let str = this.pickerEle.style.webkitTransform;
 			if(str){
 				let left 	= str.indexOf('(');
@@ -102,7 +97,6 @@ export default{
 					this.currOffset = 0;
 					this.currindex = 0;
 					this.$emit('accept-result',this.currindex);
-					// this.pickerEle.style.transform='translateY('+ 0 +'px)';
 					this.pickerEle.style.webkitTransform=`translate3d(0,0,0)`;
 				}
 			}

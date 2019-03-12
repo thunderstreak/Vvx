@@ -3,9 +3,9 @@
         <section v-if="!isshow" v-on:click="isshow = !isshow" class="layer">
             <section class="toast-center"
             v-bind:class="{
-                'toast-top':position == 'top',
-                'toast-bottom':position == 'bottom',
-                'toast-middle':position == 'middle',
+                'toast-top':position === 'top',
+                'toast-bottom':position === 'bottom',
+                'toast-middle':position === 'middle',
             }">
                 {{msg}}
             </section>
@@ -43,14 +43,6 @@ export default {
     right: 0;
     left: 0;
     bottom: 0;
-
-    /*display: flex;
-    display: -webkit-flex;
-    justify-content: center;
-    -webkit-justify-content: center;
-    align-items: center;
-    -webkit-align-items: center;*/
-
 }
 .toast-center{
     font-size: .5rem;

@@ -1,7 +1,5 @@
 <template lang="html">
     <transition name="fadeOut">
-
-
         <section class="pickerBox" v-on:click="show = true" v-show="!show">
             <transition name="fadeIn">
                 <div class="picker-box" v-show="!show">
@@ -11,24 +9,25 @@
                     </div>
                     <div class="picker-box-content">
                         <Picker
-                        v-bind:PropData="year"
-                        v-bind:setIndex="setYearCurrIndex"
-                        v-on:accept-result="acceptResultYear"></Picker>
+                            v-bind:PropData="year"
+                            v-bind:setIndex="setYearCurrIndex"
+                            v-on:accept-result="acceptResultYear">
+                        </Picker>
                         <Picker
-                        v-bind:PropData="month"
-                        v-bind:setIndex="setMonthCurrIndex"
-                        v-on:accept-result="acceptResultMonth"></Picker>
+                            v-bind:PropData="month"
+                            v-bind:setIndex="setMonthCurrIndex"
+                            v-on:accept-result="acceptResultMonth">
+                        </Picker>
                         <Picker
-                        v-bind:PropData="day"
-                        v-bind:setIndex="setDayCurrIndex"
-                        v-on:accept-result="acceptResultDay"></Picker>
+                            v-bind:PropData="day"
+                            v-bind:setIndex="setDayCurrIndex"
+                            v-on:accept-result="acceptResultDay">
+                        </Picker>
                     </div>
                 </div>
             </transition>
         </section>
-
     </transition>
-
 </template>
 
 <script>
@@ -52,11 +51,11 @@ function getFormDate(str = 'cur',size = 0){
     let max = [(year + size) , month , day];
     let min = [(year - size) , month , day];
 
-    if(str == 'cur'){
+    if(str === 'cur'){
         return cur;
-    }else if(str == 'max'){
+    }else if(str === 'max'){
         return max;
-    }else if(str == 'min'){
+    }else if(str === 'min'){
         return min;
     }else{
         return year + splice1 + month + splice1 + day + " " + hours + splice2 + minutes + splice2 + seconds;
@@ -70,7 +69,7 @@ function getFormDate(str = 'cur',size = 0){
 function getDaysInMonth(year,month){
     //parseInt(number,type)这个函数后面如果不跟第2个参数来表示进制的话，默认是10进制。
     month = parseInt(month,10);
-    var temp = new Date(year,month,0);
+    let temp = new Date(year,month,0);
     return temp.getDate();
 }
 export default {
@@ -79,30 +78,33 @@ export default {
         return{
             msg                 :'PickerTime',
             show                :true,
-            year                :[],
-            selectedYearIndex   :0,
-            month               :[],
-            selectedMonthIndex  :0,
-            day                 :[],
-            selectedDayIndex    :0,
+            year                :[],//年
+            selectedYearIndex   :0,//选中年的索引
+            setYearCurrIndex    :0,//设置当前年
+            month               :[],//月
+            selectedMonthIndex  :0,//选中月是索引
+            setMonthCurrIndex   :0,//设置当前月
+            day                 :[],//天
+            selectedDayIndex    :0,//选中天是索引
+            setDayCurrIndex     :0,//设置当前天
         }
     },
     props:{
         setCurrDate:{
             type:Array,
-            default:()=>{
+            default:() => {
                 return getFormDate('cur',0);
             }
         },
         setMaxDate:{
             type:Array,
-            default:()=>{
+            default:() => {
                 return getFormDate('max',5);
             }
         },
         setMinDate:{
             type:Array,
-            default:()=>{
+            default:() => {
                 return getFormDate('min',5);
             }
         }
@@ -111,37 +113,33 @@ export default {
 
     },
     created(){
-
         // setting years
         let comoutedYear = this.setMaxDate[0] - this.setMinDate[0] + 1;
-        for(let i = 0;i< comoutedYear;i++){
+        for(let i = 0; i < comoutedYear; i++){
             this.year.push(this.setMinDate[0]+i);
-            if(this.setMinDate[0]+i == this.setCurrDate[0]){
+            if(this.setMinDate[0] + i === this.setCurrDate[0]){
                 this.setYearCurrIndex = i;
                 this.selectedYearIndex = i;
             }
         }
 
-        for(let i = 1;i<= 12;i++){
+        for(let i = 1; i <= 12; i++){
             this.month.push(i);
-            if(i == this.setCurrDate[1]){
+            if(i === this.setCurrDate[1]){
                 this.setMonthCurrIndex = i - 1;
                 this.selectedMonthIndex = i - 1;
             }
         }
 
-        let setDateDay = getDaysInMonth(this.year[this.setYearCurrIndex],this.month[this.setMonthCurrIndex]);
+        let setDateDay = getDaysInMonth(this.year[this.setYearCurrIndex], this.month[this.setMonthCurrIndex]);
 
-        for(let i = 1;i<= setDateDay;i++){
+        for(let i = 1; i <= setDateDay; i++){
             this.day.push(i);
-            if(i == this.setCurrDate[2]){
+            if(i === this.setCurrDate[2]){
                 this.setDayCurrIndex = i - 1;
                 this.selectedDayIndex = i - 1;
             }
         }
-
-
-
     },
     mounted(){
 
@@ -187,11 +185,11 @@ export default {
         },
         // 获取当前天数
         getTargetDay(){
-            return  getDaysInMonth(this.year[this.selectedYearIndex],this.month[this.selectedMonthIndex]);
+            return  getDaysInMonth(this.year[this.selectedYearIndex], this.month[this.selectedMonthIndex]);
         },
         // 设置当前天数
         setTargetDay(){
-            let days = getDaysInMonth(this.year[this.selectedYearIndex],this.month[this.selectedMonthIndex]);
+            let days = getDaysInMonth(this.year[this.selectedYearIndex], this.month[this.selectedMonthIndex]);
             this.day.length = 0;
             for(let i = 1; i <= days; i++){
                 this.day.push(i)
@@ -199,20 +197,20 @@ export default {
         }
     },
     watch:{
-        selectedYearIndex(n,o){
-            if(n == 0){
+        selectedYearIndex(n){
+            if(n === 0){
                 this.month.length = 0;
-                for(let i = this.setMinDate[1]; i<=12;i++){
+                for(let i = this.setMinDate[1]; i <= 12; i++){
                     this.month.push(i)
                 }
-            }else if(n == this.year.length-1){
+            }else if(n === this.year.length-1){
                 this.month.length = 0;
-                for(let i = 1; i<=this.setMaxDate[1];i++){
+                for(let i = 1; i <= this.setMaxDate[1]; i++){
                     this.month.push(i)
                 }
             }else{
                 this.month.length = 0;
-                for(let i = 1; i<=12;i++){
+                for(let i = 1; i <= 12; i++){
                     this.month.push(i)
                 }
             }

@@ -32,7 +32,7 @@ export default {
 
         doc.appendChild(component.$el);
 
-        setTimeout(()=>{
+        setTimeout(() => {
             component.isshow = true;
         },2000)
     },

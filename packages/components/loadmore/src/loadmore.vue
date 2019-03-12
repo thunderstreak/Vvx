@@ -23,7 +23,6 @@
 </template>
 
 <script>
-import libs from '../../javascripts/main.js';
 export default {
     name:'loadmore',
     data(){
@@ -58,10 +57,10 @@ export default {
             this.direction = this.$tool.GetSlideDirection(this.startX,this.startY,this.endX,this.endY);
             this.offsetY = this.startY - this.endY;
 
-            if(this.scrolls == 0){
-                if(this.direction == 1){
+            if(this.scrolls === 0){
+                if(this.direction === 1){
                     this.loadmoreBox.style.transform=`translate3d(0,${-this.offsetY}px,0)`;
-                }else if(this.direction == 2){
+                }else if(this.direction === 2){
 
                     if(this.offsetY < -100){
                         // console.log('下拉');
@@ -83,14 +82,14 @@ export default {
             let loadmoreBox = this.loadmoreBox;
 
             loadmoreBox.style.transition=".5s";
-            if(this.direction == 2 &&　this.offsetY < -100){
+            if(this.direction === 2 &&　this.offsetY < -100){
                 console.log('下拉');
                 this.loding = true;
                 this.pullup = '';
                 loadmoreBox.style.transform=`translate3d(0,${this.loadmorePullUp.offsetHeight}px,0)`;
                 this.lodingUpHandler();
                 return;
-            }else if(this.direction == 1 && this.offsetY > -100){
+            }else if(this.direction === 1 && this.offsetY > -100){
                 console.log('上拉');
             }else{
                 console.log(1);

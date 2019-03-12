@@ -1,7 +1,5 @@
 <template lang="html">
     <transition name="fadeOut">
-
-
         <section class="pickerBox" v-on:click="show = true" v-show="!show">
             <transition name="fadeIn">
                 <div class="picker-box" v-show="!show">
@@ -11,17 +9,15 @@
                     </div>
                     <div class="picker-box-content">
                         <Picker
-                        v-bind:PropData="select"
-                        v-bind:setIndex="selectedIndex"
-                        v-on:accept-result="acceptResultSelect"></Picker>
+                            v-bind:PropData="select"
+                            v-bind:setIndex="selectedIndex"
+                            v-on:accept-result="acceptResultSelect">
+                        </Picker>
                     </div>
                 </div>
             </transition>
         </section>
-
     </transition>
-
-
 </template>
 
 <script>
@@ -38,26 +34,25 @@ export default {
     props:{
         PropSelect:{
             type:Array,
-            default:()=>{
+            default:() => {
                 return ['东城区'];
             }
         },
         PropData:{
             type:Array,
-            default:()=>{
+            default:() => {
                 return ['北京','北京市','东城区'];
             }
         }
     },
     created(){
-            this.select   = this.PropData;
-            for(let i = 0;i < this.PropData.length;i++){
-                if(this.PropData[i] == this.PropSelect[0]){
-                    this.selectedIndex = i;//选的下标
-                    break;
-                }
+        this.select = this.PropData;
+        for(let i = 0;i < this.PropData.length; i++){
+            if(this.PropData[i] === this.PropSelect[0]){
+                this.selectedIndex = i;//选的下标
+                break;
             }
-
+        }
     },
     mounted(){
 
@@ -68,17 +63,13 @@ export default {
         },
         enter(){
             this.show = true;
-
             let selected = this.PropData[this.selectedIndex];
-
             this.$emit('accept-result', selected);
         },
         acceptResultSelect(v){
             this.selectedIndex = v;
         },
-
-    },
-
+    }
 }
 </script>
 

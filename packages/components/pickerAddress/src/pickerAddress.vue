@@ -1,7 +1,5 @@
 <template lang="html">
     <transition name="fadeOut">
-
-
         <section class="pickerBox" v-on:click="show = true" v-show="!show">
             <transition name="fadeIn">
                 <div class="picker-box" v-show="!show">
@@ -11,27 +9,26 @@
                     </div>
                     <div class="picker-box-content">
                         <Picker
-                        v-bind:PropData="province"
-                        v-bind:setIndex="setProvinceCurrIndex"
-                        v-on:accept-result="acceptResultProvince"></Picker>
+                            v-bind:PropData="province"
+                            v-bind:setIndex="setProvinceCurrIndex"
+                            v-on:accept-result="acceptResultProvince">
+                        </Picker>
                         <Picker
-                        v-bind:PropData="city"
-                        v-bind:setIndex="setCityCurrIndex"
-                        v-on:accept-result="acceptResultCity"></Picker>
+                            v-bind:PropData="city"
+                            v-bind:setIndex="setCityCurrIndex"
+                            v-on:accept-result="acceptResultCity">
+                        </Picker>
                         <Picker
-
-                        v-if="!setProcity"
-                        v-bind:PropData="area"
-                        v-bind:setIndex="setAreaCurrIndex"
-                        v-on:accept-result="acceptResultArea"></Picker>
+                            v-if="!setProcity"
+                            v-bind:PropData="area"
+                            v-bind:setIndex="setAreaCurrIndex"
+                            v-on:accept-result="acceptResultArea">
+                        </Picker>
                     </div>
                 </div>
             </transition>
         </section>
-
     </transition>
-
-
 </template>
 
 <script>
@@ -103,7 +100,7 @@ export default {
         // 如果没有设置省市区使用默认
         this.province   = PropData.map((v,k)=>{return v.n});
         for(let i = 0;i < PropData.length;i++){
-            if(PropData[i].n == this.setAddress[0]){
+            if(PropData[i].n === this.setAddress[0]){
                 this.selectedProvinceIndex = i;//选中省的下标
                 this.setProvinceCurrIndex = i;//设置当前省下标
                 break;
@@ -111,19 +108,19 @@ export default {
         }
         let AreaDataCitys = PropData[this.selectedProvinceIndex].c;
         for(let i = 0;i < AreaDataCitys.length;i++){
-            if(AreaDataCitys[i].n == this.setAddress[1]){
+            if(AreaDataCitys[i].n === this.setAddress[1]){
                 this.selectedCityIndex = i;//选中市的下标
                 this.setCityCurrIndex = i;//设置当前市下标
-                this.city       = AreaDataCitys.map((v,k) => v.n);
+                this.city = AreaDataCitys.map((v) => v.n);
                 break;
             }
         }
         let AreaDataAreas = PropData[this.selectedProvinceIndex].c[this.selectedCityIndex].c;
         for(let i = 0;i < AreaDataAreas.length;i++){
-            if(AreaDataAreas[i].n == this.setAddress[2]){
+            if(AreaDataAreas[i].n === this.setAddress[2]){
                 this.selectedAreaIndex = i;//选中区的下标
                 this.setAreaCurrIndex = i;//设置当前区下标
-                this.area       = AreaDataAreas.map((v,k) => v.n);
+                this.area = AreaDataAreas.map((v) => v.n);
                 break;
             }
         }
@@ -141,19 +138,20 @@ export default {
             let address = [
                 PropData[this.selectedProvinceIndex].n,
                 PropData[this.selectedProvinceIndex].c[this.selectedCityIndex].n,
-                PropData[this.selectedProvinceIndex].c[this.selectedCityIndex].c.length != 0 ? PropData[this.selectedProvinceIndex].c[this.selectedCityIndex].c[this.selectedAreaIndex].n : ''
-            ]
+                PropData[this.selectedProvinceIndex].c[this.selectedCityIndex].c.length !== 0 ? PropData[this.selectedProvinceIndex].c[this.selectedCityIndex].c[this.selectedAreaIndex].n : ''
+            ];
+
             let procity = [
                 PropData[this.selectedProvinceIndex].n,
                 PropData[this.selectedProvinceIndex].c[this.selectedCityIndex].n
-            ]
+            ];
 
             this.$emit('accept-result',this.setProcity ? procity : address);
         },
         acceptResultProvince(v){
             this.selectedProvinceIndex = v;
             // this.city        = PropData[v].c;
-            this.area        = PropData[v].c[this.selectedCityIndex].c.map((v,k) => v.n);
+            this.area        = PropData[v].c[this.selectedCityIndex].c.map((v) => v.n);
         },
         acceptResultCity(v){
             this.selectedCityIndex = v;
@@ -164,12 +162,12 @@ export default {
         }
     },
     watch:{
-        selectedProvinceIndex(n,o){
-            this.city = PropData[n].c.map((v,k) => v.n);
+        selectedProvinceIndex(n){
+            this.city = PropData[n].c.map((v) => v.n);
             this.setCityCurrIndex = 0;
         },
-        selectedCityIndex(n,o){
-            this.area = PropData[this.selectedProvinceIndex].c[n].c.map((v,k) => v.n);
+        selectedCityIndex(n){
+            this.area = PropData[this.selectedProvinceIndex].c[n].c.map((v) => v.n);
         },
 
     }

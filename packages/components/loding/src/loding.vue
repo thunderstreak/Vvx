@@ -1,17 +1,13 @@
 <template lang="html">
     <transition name="fade">
-
         <section v-if="!isshow">
-
-                <section class="layer" v-on:click="or"></section>
-                <section class="loding-center">
-                    <img v-if="!loding" class="spin" src="../../../assets/tail-spin.svg">
-                    <i v-if="!done" class="icon-toast"></i>
-                    <span class="icon-msg">{{msg}}</span>
-                </section>
-
+            <section class="layer" v-on:click="or"></section>
+            <section class="loding-center">
+                <img v-if="!loding" class="spin" src="../../../assets/tail-spin.svg">
+                <i v-if="!done" class="icon-toast"></i>
+                <span class="icon-msg">{{msg}}</span>
+            </section>
         </section>
-
     </transition>
 </template>
 
@@ -21,7 +17,6 @@ export default {
     data(){
         return{
             msg     :'Loding',
-            callback:null,
             isshow  :true,
             done    :true,
             loding  :true,
